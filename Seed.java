@@ -1,4 +1,5 @@
-public class Seed{
+public class Seed
+{
     private String name;
     private String cropType;
     private int harvesTime;
@@ -15,7 +16,8 @@ public class Seed{
 
     public Seed(String name, String cropType, int harvesTime, int waterNeeds,
                 int waterBonus, int fertilizerNeeds, int fertilizerBonus, int productStart,
-                int productEnd, int seedCost, int basePrice, int expYield, FarmerType farmerChange){
+                int productEnd, int seedCost, int basePrice, int expYield, FarmerType farmerChange)
+    {
         this.name = name;
         this.cropType = cropType;
         this.harvesTime = harvesTime;
@@ -31,15 +33,41 @@ public class Seed{
         this.farmerChange = farmerChange;
     }
 
-    // public int setBasePrice(FarmerType farmerChange, int basePrice){
-        
-    // }
+    public int setBasePrice(FarmerType farmerChange, int basePrice)
+    {
+        int addedPrice = this.farmerChange.getBonusPro();
 
-    // public int setSeedCost(FarmerType farmerChange, int seedCost){
-    //     int tempSeedCost = this.farmerChange.getSeedReduc();
+        basePrice = basePrice + addedPrice;
 
-    //     this.seedCost = this.seedCost - tempSeedCost;
+        return basePrice;
+    }
 
-    //     return this.seedCost;
-    // }
+    public int setSeedCost(FarmerType farmerChange, int seedCost)
+    {
+        int reductedCost = this.farmerChange.getSeedReduc();
+
+        seedCost = seedCost - reductedCost;
+
+        return seedCost;
+    }
+
+    public int setWaterBonus(FarmerType farmerChange, int WaterBonus)
+    {
+        int addedWBonus = this.farmerChange.getSeedReduc();
+
+        WaterBonus = WaterBonus + addedWBonus;
+
+        return WaterBonus;
+    }
+
+    public int setFertilizerBonus(FarmerType farmerChange, int FertilizerBonus)
+    {
+        int addedFBonus = this.farmerChange.getSeedReduc();
+
+        FertilizerBonus = FertilizerBonus + addedFBonus;
+
+        return FertilizerBonus;
+    }
+
+
 }
