@@ -1,59 +1,59 @@
 public class Seed
 {
-    private String name;
-    private String cropType;
-    private int harvesTime;
-    private int waterNeeds;
-    private int waterBonus;
-    private int fertilizerNeeds;
-    private int fertilizerBonus;
-    private int productStart;
-    private int productEnd;
-    private int seedCost;
-    private int basePrice;
-    private int expYield;
-    private FarmerType farmerChange; // I added this for setters we can discuss tom if this is needed
+    protected String Name;
+    protected String CropType;
+    protected int HarvestTime;
+    protected int WaterNeeds;
+    protected int WaterBonus;
+    protected int FertilizerNeeds;
+    protected int FertilizerBonus;
+    protected int ProductStart;
+    protected int ProductEnd;
+    protected int SeedCost;
+    protected int BasePrice;
+    protected int ExpYield;
+    protected FarmerType FarmerChange; // I added this for setters we can discuss tom if this is needed
 
-    public Seed(String name, String cropType, int harvesTime, int waterNeeds,
-                int waterBonus, int fertilizerNeeds, int fertilizerBonus, int productStart,
-                int productEnd, int seedCost, int basePrice, int expYield, FarmerType farmerChange)
+    public Seed(String Name, String CropType, int HarvesTime, int WaterNeeds,
+                int WaterBonus, int FertilizerNeeds, int FertilizerBonus, int ProductStart,
+                int ProductEnd, int SeedCost, int FasePrice, int ExpYield, FarmerType FarmerChange)
     {
-        this.name = name;
-        this.cropType = cropType;
-        this.harvesTime = harvesTime;
-        this.waterNeeds = waterNeeds;
-        this.waterBonus = waterBonus;
-        this.fertilizerNeeds = fertilizerNeeds;
-        this.fertilizerBonus = fertilizerBonus;
-        this.productStart = productStart;
-        this.productEnd =  productEnd;
-        this.seedCost = seedCost;
-        this.basePrice = basePrice;
-        this.expYield = expYield;
-        this.farmerChange = farmerChange;
+        this.Name = Name;
+        this.CropType = CropType;
+        this.HarvestTime = HarvestTime;
+        this.WaterNeeds = WaterNeeds;
+        this.WaterBonus = WaterBonus;
+        this.FertilizerNeeds = FertilizerNeeds;
+        this.FertilizerBonus = FertilizerBonus;
+        this.ProductStart = ProductStart;
+        this.ProductEnd =  ProductEnd;
+        this.SeedCost = SeedCost;
+        this.BasePrice = BasePrice;
+        this.ExpYield = ExpYield;
+        this.FarmerChange = FarmerChange;
     }
 
-    public int setBasePrice(FarmerType farmerChange, int basePrice)
+    public int setBasePrice(FarmerType FarmerChange, int BasePrice)
     {
-        int addedPrice = this.farmerChange.getBonusPro();
+        int addedPrice = this.FarmerChange.getBonusPro();
 
-        basePrice = basePrice + addedPrice;
+        BasePrice = BasePrice + addedPrice;
 
-        return basePrice;
+        return BasePrice;
     }
 
-    public int setSeedCost(FarmerType farmerChange, int seedCost)
+    public int setSeedCost(FarmerType FarmerChange, int SeedCost)
     {
-        int reductedCost = this.farmerChange.getSeedReduc();
+        int reductedCost = this.FarmerChange.getSeedReduc();
 
-        seedCost = seedCost - reductedCost;
+        SeedCost = SeedCost - reductedCost;
 
-        return seedCost;
+        return SeedCost;
     }
 
     public int setWaterBonus(FarmerType farmerChange, int WaterBonus)
     {
-        int addedWBonus = this.farmerChange.getSeedReduc();
+        int addedWBonus = this.FarmerChange.getSeedReduc();
 
         WaterBonus = WaterBonus + addedWBonus;
 
@@ -62,12 +62,70 @@ public class Seed
 
     public int setFertilizerBonus(FarmerType farmerChange, int FertilizerBonus)
     {
-        int addedFBonus = this.farmerChange.getSeedReduc();
+        int addedFBonus = this.FarmerChange.getSeedReduc();
 
         FertilizerBonus = FertilizerBonus + addedFBonus;
 
         return FertilizerBonus;
     }
 
+    public String getName()
+    {
+        return Name;
+    }
 
+    public String getCropType()
+    {
+        return CropType; 
+    }
+
+    public int getHarvestTime()
+    {
+        return HarvestTime;
+    }
+    
+    public int getWaterNeeds()
+    {
+        return WaterNeeds;
+    }
+
+    public int getWaterBonus()
+    {
+        return WaterBonus;
+    }
+
+    public int getFertilizerNeeds()
+    {
+        return FertilizerNeeds;
+    }
+
+    public int getFertilizerBonus()
+    {
+        return FertilizerBonus;
+    }
+
+    public int getProductStart()
+    {
+        return ProductStart;
+    }
+
+    public int getProductEnd()
+    {
+        return ProductEnd;
+    }
+
+    public int getSeedCost()
+    {
+        return SeedCost;
+    }
+
+    public int getBasePrice()
+    {
+        return BasePrice; 
+    }
+
+    public int getExpYield()
+    {
+        return ExpYield;
+    }
 }
