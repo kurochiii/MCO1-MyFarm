@@ -7,14 +7,26 @@ public class Farmer
     private int objectCoin;
     private String name;
 
+    /**
+     * This constructor sets the different attributes in the Farmer class
+     * @param name This parameter is the name of the Farmer
+     * @param FarmerTypes This parameter is an arraylist of FarmerType
+     */
     public Farmer(String name, ArrayList<FarmerType> FarmerTypes)
     {
         this.name = name;
-        this.level = 0;
-        this.objectCoin = 100;
+        this.level = 0; //Set starting level to 0
+        this.objectCoin = 100; //Set starting object coin to 100
         this.typeofFarmer = FarmerTypes.get(0);
     }
 
+    /**
+     * plantCrop is a method that allows a farmer to plant a crop if it has enough object coins for the crop
+     * @param index This parameter is the index of the specific seed in the seedList
+     * @param seedList This parameter is an ArrayList of seed
+     * @param lot This parameter the location of where the method would take place
+     * @return a boolean value that shows if the action was successful
+     */
     public boolean plantCrop(int index, ArrayList<Seed> seedList, Lot lot)
     {
         boolean value = false;
@@ -29,6 +41,13 @@ public class Farmer
         return value;
     }
 
+    /**
+     * useTool is a method that allows the farmer to use a tool if it has enough object coins for the tool
+     * @param index This parameter represents the index of the specific tool asked for in the tool list
+     * @param toolList This parameter is a array list of Tool
+     * @param lot This parameter is the location of where the method would take place
+     * @return a boolean value representing if the action was successful
+     */
     public boolean useTool(int index, ArrayList<Tool> toolList, Lot lot)
     {
         boolean value = false;
@@ -58,6 +77,12 @@ public class Farmer
         return value;
     }
 
+    /**
+     * harvestCrop is a method that allows the farmer to harvestcrop and adds the resulting 
+     * harvest price to the farmers object coins
+     * @param lot This parameter is the location of where the method is taking place
+     * @return a boolean value signaling if the method was successful
+     */
     public boolean harvestCrop(Lot lot)
     {
         boolean value = false;
@@ -73,16 +98,26 @@ public class Farmer
         return value;
     }
 
+    /**
+     * getLevel is a method that gets/returns the farmers level
+     * @return the farmers level
+     */
     public int getLevel()
     {
         return this.level;
     }
+
     /* 
     // Commented for the time being because not used for MCO1
     public FarmerType getTypeOfFarmer(){
         return this.typeOfFarmer;
     }
     */
+
+    /**
+     * getObjectCoin is a method that gets/returns the farmers object coins
+     * @return the farmers object coins
+     */
     public int getObjectCoin()
     {
         return this.objectCoin;

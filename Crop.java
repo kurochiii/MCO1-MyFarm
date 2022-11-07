@@ -6,6 +6,10 @@ public class Crop extends Seed
     private int Products; 
     private int FinalHarvestPrice;
 
+    /**
+     * This contructor allows the Crop class to instantiate the Seed class
+     * @param seed This parameter is an object of the seed class
+     */
     public Crop(Seed seed)
     {
         super(seed.getName(), seed.getCropType(), seed.getHarvestTime(), seed.getWaterNeeds(), seed.getWaterBonus(), 
@@ -18,21 +22,34 @@ public class Crop extends Seed
 
     }
 
+    /**
+     * addWater is a method that adds the times this. was watered
+     */
     public void addWater()
     {
         this.TimesWatered++;
     }
 
+    /**
+     * addFertilizer is a method that adds the times this. was fertilized
+     */
     public void addFertilizer()
     {
         this.TimesFertilized++;
     }
 
+    /**
+     * nextDay is a method that adds to the amount of planted days
+     */
     public void nextDay()
     {
         this.PlantedDays++;
     }
 
+    /**
+     * CheckforHarvest is a method if a crop meets the requirements of being harvested
+     * @return a boolean value that shows if crop can be harvested
+     */
     public boolean CheckforHarvest()
     {
         boolean ok = false; 
@@ -48,6 +65,9 @@ public class Crop extends Seed
         return ok; 
     }
 
+    /**
+     * calcProducts is a method that calculates the products
+     */
     public void calcProducts()
     {   
         int products;
@@ -63,6 +83,9 @@ public class Crop extends Seed
         Products = products;
     }
 
+    /**
+     * calcFinalHarvestPrice is a method that calculates the final harvest price once a crop is harvested
+     */
     public void calcFinalHarvestPrice()
     {
         double finaldoubleprice; 
@@ -87,16 +110,28 @@ public class Crop extends Seed
         FinalHarvestPrice = (int)finaldoubleprice;
     }
 
+    /**
+     * getPlantedDays is a method that gets/returns the planted days
+     * @return the planted days
+     */
     public int getPlantedDays()
     {
         return PlantedDays;
     }
 
+    /**
+     * getProducts is a method that gets/returns the products
+     * @return the products
+     */
     public int getProducts()
     {
         return Products;
     }
 
+    /**
+     * getFinalHarvestPrice is a method that gets/returns the final harvest price
+     * @return the final harvest price
+     */
     public int getFinalHarvestPrice()
     {
         return FinalHarvestPrice;

@@ -7,7 +7,7 @@ public class FarmerType{
     private int regFee;
 
     /**
-     * The Constructor sets the different variables stated in FarmerType class
+     * The Constructor sets the different attributes stated in FarmerType class
      * @param levelReq This parameter is the level requirment of the farmer type
      * @param bonusPro This parameter is the bonus earnings per produce of the farmer type
      * @param seedReduc This parameter is the seed cost reduction of the farmer type
