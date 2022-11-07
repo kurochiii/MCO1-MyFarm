@@ -19,7 +19,7 @@ public class Driver
             // intro 
             while (lose == false)
             {
-                System.out.println("Day" + newFarm.getTotalDays());
+                System.out.println("Day " + newFarm.getTotalDays());
                 
                 System.out.println("Current Lots");
 
@@ -80,7 +80,7 @@ public class Driver
                         }
                         else 
                         {   
-                            if (newFarm.getFarm()[X][Y].getCrop().getPlantedDays() + 1 <= newFarm.getFarm()[X][Y].getCrop().getHarvestTime())
+                            if (newFarm.getFarm()[X][Y].getCrop().getPlantedDays() <= newFarm.getFarm()[X][Y].getCrop().getHarvestTime())
                             {
                                 System.out.println("[" + WaterNum + "]" + "Water Crop");
                                 System.out.println("[" + FertilizeNum + "]" + "Fertilize Crop");
@@ -151,8 +151,8 @@ public class Driver
                                 System.out.println(newFarm.getFarm()[X][Y].getCrop().getName() + "s Harvested: " + newFarm.getFarm()[X][Y].getCrop().getProducts());
                                 System.out.println("ObjectCoins Gained: " + newFarm.getFarm()[X][Y].getCrop().getFinalHarvestPrice());
 
-                                Crop current = newFarm.getFarm()[X][Y].getCrop(); 
-                                current = null;
+                                newFarm.getFarm()[X][Y].HarvestCrop();
+                                break;
                             }
                     }
                 }
