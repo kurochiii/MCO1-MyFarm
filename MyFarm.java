@@ -22,7 +22,11 @@ public class MyFarm
     SeedList.add(turnip);
 
     Tool plow = new Tool("Plow", 0, 0.5);
+    Tool wateringcan = new Tool("Watering Can", 0, 0.5);
+    Tool fertilizer = new Tool("Fertilizer", 10, 4);
     ToolList.add(plow);
+    ToolList.add(wateringcan);
+    ToolList.add(fertilizer);
  
     FarmerType farmer = new FarmerType(0, 0, 0, 0, 0, 0);
     FarmerTypes.add(farmer);

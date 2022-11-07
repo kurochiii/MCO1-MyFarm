@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 public class Crop extends Seed
 {
     private int TimesWatered; 
@@ -41,7 +39,7 @@ public class Crop extends Seed
 
         if (PlantedDays == HarvestTime)
         {
-            if (TimesFertilized >= getFertilizerNeeds() && TimesWatered >= getWaterNeeds())
+            if (TimesFertilized >= FertilizerNeeds && TimesWatered >= WaterNeeds)
             {
                 ok = true;
             }
@@ -50,7 +48,7 @@ public class Crop extends Seed
         return ok; 
     }
 
-    public int getProducts()
+    public void calcProducts()
     {   
         int products;
         if (getProductStart() == getProductEnd())
@@ -59,13 +57,13 @@ public class Crop extends Seed
         }
         else
         {
-            products = 21; // random placeholder
+            products = (int)Math.floor(Math.random() * (ProductEnd - ProductStart + 1) + ProductStart);
         }
 
-        return products;
+        Products = products;
     }
 
-    public int getFinalHarvestPrice()
+    public void calcFinalHarvestPrice()
     {
         double finaldoubleprice; 
         double HarvestTotal, WBonus, FBonus;
@@ -86,11 +84,21 @@ public class Crop extends Seed
 
         finaldoubleprice = HarvestTotal + WBonus + FBonus;
 
-        return (int)finaldoubleprice;
+        FinalHarvestPrice = (int)finaldoubleprice;
     }
 
     public int getPlantedDays()
     {
         return PlantedDays;
+    }
+
+    public int getProducts()
+    {
+        return Products;
+    }
+
+    public int getFinalHarvestPrice()
+    {
+        return FinalHarvestPrice;
     }
 }
