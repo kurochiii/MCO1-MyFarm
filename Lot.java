@@ -13,7 +13,7 @@ public class Lot
         this.yLocation = yLocation;
     }
 
-    public void PlowTile()
+    public void PlowLot()
     {
         plowed = true;
     }
@@ -41,6 +41,11 @@ public class Lot
     public Crop getCrop()
     {
         return crop;
+    }
+
+    public boolean getPlowed()
+    {
+        return plowed;
     }
 
 }

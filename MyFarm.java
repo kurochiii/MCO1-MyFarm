@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class MyFarm 
 {
   private String Name;
-  Lot[][] farm = new Lot[10][5]; // side of board
+  private Lot[][] farm = new Lot[1][1]; // side of board
 
   MyFarm(String Name)
   {
@@ -67,4 +67,13 @@ public class MyFarm
     return farm;
   }
 
+  public ArrayList<Seed> getSeedList()
+  {
+    return SeedList;
+  }
+
+  public ArrayList<Tool> getToolList()
+  {
+    return ToolList;
+  }
 }

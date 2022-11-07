@@ -35,13 +35,13 @@ public class Crop extends Seed
         this.PlantedDays++;
     }
 
-    public boolean CheckforHarvest(Seed seed, int PlantedDays)
+    public boolean CheckforHarvest()
     {
         boolean ok = false; 
 
-        if (PlantedDays == seed.HarvestTime)
+        if (PlantedDays == HarvestTime)
         {
-            if (TimesFertilized >= seed.getFertilizerNeeds() && TimesWatered >= seed.getWaterNeeds())
+            if (TimesFertilized >= getFertilizerNeeds() && TimesWatered >= getWaterNeeds())
             {
                 ok = true;
             }
@@ -50,12 +50,12 @@ public class Crop extends Seed
         return ok; 
     }
 
-    public int getProducts(Seed seed)
+    public int getProducts()
     {   
         int products;
-        if (seed.getProductStart() == seed.getProductEnd())
+        if (getProductStart() == getProductEnd())
         {
-            products = seed.getProductStart();
+            products = getProductStart();
         }
         else
         {
@@ -65,27 +65,32 @@ public class Crop extends Seed
         return products;
     }
 
-    public int getFinalHarvestPrice(int Products, int TimesWatered, int TimesFertilized, Seed seed)
+    public int getFinalHarvestPrice()
     {
         double finaldoubleprice; 
-        double HarvestTotal, WaterBonus, FertilizerBonus;
+        double HarvestTotal, WBonus, FBonus;
 
-        if (TimesWatered > seed.WaterNeeds + seed.WaterBonus)
+        if (TimesWatered > WaterNeeds + WaterBonus)
         {
-            TimesWatered = seed.WaterNeeds + seed.WaterBonus;
+            TimesWatered = WaterNeeds + WaterBonus;
         }
         
-        if (TimesFertilized > seed.FertilizerNeeds + seed.FertilizerBonus)
+        if (TimesFertilized > FertilizerNeeds + FertilizerBonus);
         {
-            TimesFertilized = seed.FertilizerNeeds + seed.FertilizerBonus;
+            TimesFertilized = FertilizerNeeds + FertilizerBonus;
         }
         
-        HarvestTotal = Products * (seed.getBasePrice());
-        WaterBonus = HarvestTotal * 0.2 * (TimesWatered - 1);
-        FertilizerBonus = HarvestTotal * 0.2 * (TimesFertilized -1);
+        HarvestTotal = Products * (getBasePrice());
+        WBonus = HarvestTotal * 0.2 * (TimesWatered - 1);
+        FBonus = HarvestTotal * 0.2 * (TimesFertilized -1);
 
-        finaldoubleprice = HarvestTotal + WaterBonus + FertilizerBonus;
+        finaldoubleprice = HarvestTotal + WBonus + FBonus;
 
         return (int)finaldoubleprice;
+    }
+
+    public int getPlantedDays()
+    {
+        return PlantedDays;
     }
 }

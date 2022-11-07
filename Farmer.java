@@ -15,64 +15,39 @@ public class Farmer
         this.typeofFarmer = FarmerTypes.get(0);
     }
 
-    public boolean plantCrop(String nameOfSeed, int objectCoin,  ArrayList<Seed> seedList, Lot lot)
+    public boolean plantCrop(int index, int objectCoin,  ArrayList<Seed> seedList, Lot lot)
     {
-        boolean value = false; 
-        int index = 0;
-        
-        for(Seed s : seedList)
+        boolean value = false;
+
+        if(objectCoin >= seedList.get(index).getSeedCost())  // If you have enough objectCoin
         {
-            if(nameOfSeed.equals(s.getName()))  // If nameOfSeed is equal to any of the instances of seedList.getName
-            { 
-                if(objectCoin >= s.getSeedCost())  // If you have enough objectCoin
-                {
-                    objectCoin -= s.getSeedCost();  // Minus cost to farmers object Coin
-                    value = true; 
-                    lot.AddCrop(new Crop(s));
-                }
-                else
-                {
-                    System.out.println("Invalid amount of object coins");
-                }
-            }
-
-            else
-            {
-                System.out.println("Seed does not exist");
-            }
-
-            index ++;
+            objectCoin -= seedList.get(index).getSeedCost();  // Minus cost to farmers object Coin
+            lot.AddCrop(new Crop(seedList.get(index)));
+            value = true; 
         }
 
         return value;
     }
 
-    public boolean usePlow(String nameOfTool, int objectCoin, ArrayList<Tool> toolList, Lot lot)
+    public boolean useTool(int index, int objectCoin, ArrayList<Tool> toolList, Lot lot)
     {
         boolean value = false;
         
-        for(Tool t : toolList)
-        {
-            if(nameOfTool.equals(t.getName()))  // If nameOfTool is equal to any of the instances of toolList.getName
+        if(objectCoin >= toolList.get(index).getCostofUsage()) // If you have enough objectCoin
+        { 
+            objectCoin -= toolList.get(index).getCostofUsage(); // Minus cost to farmers object Coin
+            switch(index)
             {
-                if(objectCoin >= t.getCostofUsage()) // If you have enough objectCoin
-                { 
-                    objectCoin -= t.getCostofUsage(); // Minus cost to farmers object Coin
-                    value = true;
-                    lot.PlowTile();
-                }
-                else
-                {
-                    System.out.println("Invalid amount of object coins");
-                }
+                case 0: 
+                    lot.PlowLot();
+                    break;
+                case 1:
+                    lot.getCrop().addWater();
+                    break;
             }
-
-            else
-            {
-                System.out.println("Tool does not exist");
-            }
+            value = true;
         }
-
+               
         return value;
     }
 
