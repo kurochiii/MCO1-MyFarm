@@ -7,7 +7,8 @@ public class FarmerType{
     private int regFee;
 
     public FarmerType(int levelReq, int bonusPro, int seedReduc,
-                    int waterBLI, int fertilizerBLI, int regFee){
+                    int waterBLI, int fertilizerBLI, int regFee)
+    {
         this.levelReq = levelReq;
         this.bonusPro = bonusPro;
         this.seedReduc = seedReduc;
@@ -16,22 +17,33 @@ public class FarmerType{
         this.regFee = regFee;
     }
 
-    public int getLevelReq(){
+    public int getLevelReq()
+    {
         return this.levelReq;
     }
-    public int getBonusPro(){
+
+    public int getBonusPro()
+    {
         return this.bonusPro;
     }
-    public int getSeedReduc(){
+
+    public int getSeedReduc()
+    {
         return this.seedReduc;
     }
-    public int getWaterBLI(){
+
+    public int getWaterBLI()
+    {
         return this.waterBLI;
     }
-    public int getFertilizerBLI(){
+
+    public int getFertilizerBLI()
+    {
         return this.fertilizerBLI;
     }
-    public int getRegFee(){
+
+    public int getRegFee()
+    {
         return this.regFee;
     }
 }

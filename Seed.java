@@ -2,6 +2,7 @@ public class Seed
 {
     protected String Name;
     protected String CropType;
+    protected int numberCT; // crop type into integer
     protected int HarvestTime;
     protected int WaterNeeds;
     protected int WaterBonus;
@@ -12,11 +13,10 @@ public class Seed
     protected int SeedCost;
     protected int BasePrice;
     protected int ExpYield;
-    protected FarmerType FarmerChange; // I added this for setters we can discuss tom if this is needed
 
-    public Seed(String Name, String CropType, int HarvesTime, int WaterNeeds,
+    public Seed(String Name, String CropType, int HarvestTime, int WaterNeeds,
                 int WaterBonus, int FertilizerNeeds, int FertilizerBonus, int ProductStart,
-                int ProductEnd, int SeedCost, int FasePrice, int ExpYield, FarmerType FarmerChange)
+                int ProductEnd, int SeedCost, int BasePrice, int ExpYield)
     {
         this.Name = Name;
         this.CropType = CropType;
@@ -30,43 +30,27 @@ public class Seed
         this.SeedCost = SeedCost;
         this.BasePrice = BasePrice;
         this.ExpYield = ExpYield;
-        this.FarmerChange = FarmerChange;
+        
+        //if (CropType = smth ) then number CT = 1,2, or 3
     }
 
-    public int setBasePrice(FarmerType FarmerChange, int BasePrice)
+    public void updateSeed(FarmerType FarmerChange)
     {
-        int addedPrice = this.FarmerChange.getBonusPro();
+        int addedPrice = FarmerChange.getBonusPro();
 
         BasePrice = BasePrice + addedPrice;
-
-        return BasePrice;
-    }
-
-    public int setSeedCost(FarmerType FarmerChange, int SeedCost)
-    {
-        int reductedCost = this.FarmerChange.getSeedReduc();
+    
+        int reductedCost = FarmerChange.getSeedReduc();
 
         SeedCost = SeedCost - reductedCost;
 
-        return SeedCost;
-    }
-
-    public int setWaterBonus(FarmerType farmerChange, int WaterBonus)
-    {
-        int addedWBonus = this.FarmerChange.getSeedReduc();
+        int addedWBonus = FarmerChange.getSeedReduc();
 
         WaterBonus = WaterBonus + addedWBonus;
-
-        return WaterBonus;
-    }
-
-    public int setFertilizerBonus(FarmerType farmerChange, int FertilizerBonus)
-    {
-        int addedFBonus = this.FarmerChange.getSeedReduc();
+    
+        int addedFBonus = FarmerChange.getSeedReduc();
 
         FertilizerBonus = FertilizerBonus + addedFBonus;
-
-        return FertilizerBonus;
     }
 
     public String getName()

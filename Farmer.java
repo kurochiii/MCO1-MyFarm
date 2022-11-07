@@ -3,29 +3,22 @@ import java.util.ArrayList;
 public class Farmer 
 {
     private int level;
-    private FarmerType typeOfFarmer;
+    private FarmerType typeofFarmer;
     private int objectCoin;
+    private String name;
 
-    public Farmer(int level, FarmerType typeOfFarmer, int objectCoin)
+    public Farmer(String name, ArrayList<FarmerType> FarmerTypes)
     {
-        this.level = level;
-        this.typeOfFarmer = typeOfFarmer;
-        this.objectCoin = objectCoin;
+        this.name = name;
+        this.level = 0;
+        this.objectCoin = 100;
+        this.typeofFarmer = FarmerTypes.get(0);
     }
 
-    public void setObjectCoin(int objectCoin)
-    {
-        this.objectCoin = 100; // Sets the starting object Coin amount to 100
-    }
-
-    public void setLevel(int level)
-    {
-        this.level = 0; // Sets the starting level to 0
-    }
-
-    public boolean plantCrop(String nameOfSeed, int objectCoin,  ArrayList<Seed> seedList)
+    public boolean plantCrop(String nameOfSeed, int objectCoin,  ArrayList<Seed> seedList, Lot lot)
     {
         boolean value = false; 
+        int index = 0;
         
         for(Seed s : seedList)
         {
@@ -33,8 +26,9 @@ public class Farmer
             { 
                 if(objectCoin >= s.getSeedCost())  // If you have enough objectCoin
                 {
-                    objectCoin - s.getSeedCost();  // Minus cost to farmers object Coin
+                    objectCoin -= s.getSeedCost();  // Minus cost to farmers object Coin
                     value = true; 
+                    lot.AddCrop(new Crop(s));
                 }
                 else
                 {
@@ -46,12 +40,14 @@ public class Farmer
             {
                 System.out.println("Seed does not exist");
             }
+
+            index ++;
         }
 
         return value;
     }
 
-    public boolean usePlow(String nameOfTool, int objectCoin, ArrayList<Tool> toolList)
+    public boolean usePlow(String nameOfTool, int objectCoin, ArrayList<Tool> toolList, Lot lot)
     {
         boolean value = false;
         
@@ -61,8 +57,9 @@ public class Farmer
             {
                 if(objectCoin >= t.getCostofUsage()) // If you have enough objectCoin
                 { 
-                    objectCoin - t.getCostofUsage(); // Minus cost to farmers object Coin
+                    objectCoin -= t.getCostofUsage(); // Minus cost to farmers object Coin
                     value = true;
+                    lot.PlowTile();
                 }
                 else
                 {

@@ -2,9 +2,9 @@ public class Tool
 {
     private String Name; 
     private int CostofUsage; 
-    private int ExpGained;
+    private double ExpGained;
 
-    private Tool(String Name, int CostOfUsage, int ExpGained)
+    public Tool(String Name, int CostOfUsage, double ExpGained)
     {
         this.Name = Name;
         this.CostofUsage = CostOfUsage; 
@@ -21,7 +21,7 @@ public class Tool
         return CostofUsage; 
     }
 
-    public int getExpGained()
+    public double getExpGained()
     {
         return ExpGained; 
     }
