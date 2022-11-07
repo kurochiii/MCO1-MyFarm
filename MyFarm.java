@@ -5,7 +5,11 @@ public class MyFarm
   private String Name;
   private Lot[][] farm = new Lot[1][1]; // side of board
 
-  MyFarm(String Name)
+  /**
+   * This constructor sets the attribute stated in MyFarm class
+   * @param Name
+   */
+  public MyFarm(String Name)
   {
     this.Name = Name;
   }
@@ -16,6 +20,10 @@ public class MyFarm
   private ArrayList<Tool> ToolList = new ArrayList<Tool>();
   private ArrayList<FarmerType> FarmerTypes = new ArrayList<FarmerType>();
 
+  /**
+   * setGame is a method that sets the different seeds, tools, and farmerType that is needed to be initialized in the
+   * different array lists
+   */
   public void setGame()
   {
     Seed turnip = new Seed("Turnip", "Root Crop", 2, 1, 2, 0, 1, 1, 2, 5, 6, 5);
@@ -40,6 +48,9 @@ public class MyFarm
     }
   }
 
+  /**
+   * NewDay is a method that adds a new day, and to the TotalDays
+   */
   public void NewDay()
   {
     TotalDays++;
@@ -56,26 +67,46 @@ public class MyFarm
     }
   }
 
+  /**
+   * getTotalDays is a method that gets/returns the total amount of days
+   * @return the total amount of days
+   */
   public int getTotalDays()
   {
     return TotalDays;
   }
 
+  /**
+   * getFarmerTypes is a method that gets/returns the array list of farmer types
+   * @return the array list of farmer types
+   */
   public ArrayList<FarmerType> getFarmerTypes()
   {
     return FarmerTypes;
   }
 
+  /**
+   * getFarm is a method that gets/returns the whole lot/farm
+   * @return the whole lot/farm
+   */
   public Lot[][] getFarm()
   {
     return farm;
   }
 
+  /**
+   * getSeedList is a method that gets/returns the array list of Seed
+   * @return the array list of seeds
+   */
   public ArrayList<Seed> getSeedList()
   {
     return SeedList;
   }
 
+  /**
+   * getToolList is a method that gets/returns the array list of Tool
+   * @return the array list of Tool
+   */
   public ArrayList<Tool> getToolList()
   {
     return ToolList;
