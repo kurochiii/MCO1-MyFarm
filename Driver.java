@@ -58,6 +58,7 @@ public class Driver
                 {
                     System.out.println("Unplowed");
                 }
+                System.out.println("");
 
                 System.out.println("Possible Actions");
                 int PlantNum = 1; 
@@ -96,6 +97,7 @@ public class Driver
                             }
                             
                         }
+                        System.out.println("");
 
                     }
                     else 
@@ -104,6 +106,7 @@ public class Driver
                     }
 
                     System.out.println("[" + None + "]" + "Proceed to Next Day");
+                    System.out.println("");
 
                     System.out.println("ObjectCoin: " + myFarmer.getObjectCoin());
                     System.out.print("Select an action:");
@@ -158,6 +161,7 @@ public class Driver
                 }
 
                 newFarm.NewDay();
+                System.out.println("");
             }
 
         } 
