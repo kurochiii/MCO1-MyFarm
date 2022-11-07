@@ -15,13 +15,13 @@ public class Farmer
         this.typeofFarmer = FarmerTypes.get(0);
     }
 
-    public boolean plantCrop(int index, int objectCoin,  ArrayList<Seed> seedList, Lot lot)
+    public boolean plantCrop(int index, ArrayList<Seed> seedList, Lot lot)
     {
         boolean value = false;
 
         if(objectCoin >= seedList.get(index).getSeedCost())  // If you have enough objectCoin
         {
-            objectCoin -= seedList.get(index).getSeedCost();  // Minus cost to farmers object Coin
+            objectCoin =  objectCoin - seedList.get(index).getSeedCost();  // Minus cost to farmers object Coin
             lot.AddCrop(new Crop(seedList.get(index)));
             value = true; 
         }
@@ -29,25 +29,47 @@ public class Farmer
         return value;
     }
 
-    public boolean useTool(int index, int objectCoin, ArrayList<Tool> toolList, Lot lot)
+    public boolean useTool(int index, ArrayList<Tool> toolList, Lot lot)
     {
         boolean value = false;
         
         if(objectCoin >= toolList.get(index).getCostofUsage()) // If you have enough objectCoin
         { 
-            objectCoin -= toolList.get(index).getCostofUsage(); // Minus cost to farmers object Coin
+            objectCoin = objectCoin - toolList.get(index).getCostofUsage(); // Minus cost to farmers object Coin
             switch(index)
             {
                 case 0: 
                     lot.PlowLot();
+                    value = true; 
                     break;
                 case 1:
                     lot.getCrop().addWater();
+                    value = true; 
                     break;
+                case 2: 
+                    lot.getCrop().addFertilizer();
+                    value = true; 
+                    break;
+                case 3: 
             }
             value = true;
         }
                
+        return value;
+    }
+
+    public boolean harvestCrop(Lot lot)
+    {
+        boolean value = false;
+
+        lot.getCrop().calcProducts();
+        lot.getCrop().calcFinalHarvestPrice();
+
+        objectCoin = objectCoin + lot.getCrop().getFinalHarvestPrice();
+
+        lot.UnPlowLot();
+
+        value = true;
         return value;
     }
 

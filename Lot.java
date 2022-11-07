@@ -18,6 +18,11 @@ public class Lot
         plowed = true;
     }
 
+    public void UnPlowLot()
+    {
+        plowed = false;
+    }
+
     public void RemoveRock()
     {
         rock = false;
@@ -47,5 +52,4 @@ public class Lot
     {
         return plowed;
     }
-
 }

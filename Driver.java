@@ -80,7 +80,7 @@ public class Driver
                         }
                         else 
                         {   
-                            if (newFarm.getFarm()[X][Y].getCrop().getPlantedDays() < newFarm.getFarm()[X][Y].getCrop().getHarvestTime())
+                            if (newFarm.getFarm()[X][Y].getCrop().getPlantedDays() + 1 <= newFarm.getFarm()[X][Y].getCrop().getHarvestTime())
                             {
                                 System.out.println("[" + WaterNum + "]" + "Water Crop");
                                 System.out.println("[" + FertilizeNum + "]" + "Fertilize Crop");
@@ -105,6 +105,7 @@ public class Driver
 
                     System.out.println("[" + None + "]" + "Proceed to Next Day");
 
+                    System.out.println("ObjectCoin: " + myFarmer.getObjectCoin());
                     System.out.print("Select an action:");
                     Action = sc.nextInt();
 
@@ -119,20 +120,44 @@ public class Driver
                             System.out.println("Which seed would you like to Plant?");
                             choice = sc.nextInt();
 
-                            myFarmer.plantCrop(choice, myFarmer.getObjectCoin(), newFarm.getSeedList(), newFarm.getFarm()[X][Y]);
+                            myFarmer.plantCrop(choice, newFarm.getSeedList(), newFarm.getFarm()[X][Y]);
+                            break; 
 
                         case 2:
-                            if (myFarmer.useTool(0, myFarmer.getObjectCoin(), newFarm.getToolList(), newFarm.getFarm()[X][Y])) // index 0 is plow
+                            if (myFarmer.useTool(0, newFarm.getToolList(), newFarm.getFarm()[X][Y])) // index 0 is plow
                             {
                                 System.out.println("Sucessfully Plowed Lot");
                             }
+                            break; 
 
-                        //case 3:
-                        //case 4:
-                        //case 5:
+                        case 3:
+                            if (myFarmer.useTool(1, newFarm.getToolList(), newFarm.getFarm()[X][Y])) // index 1 is watering can
+                            {
+                                System.out.println("Sucessfully Watered Plant");
+                            }
+                            break; 
+
+                        case 4:
+                            if (myFarmer.useTool(2, newFarm.getToolList(), newFarm.getFarm()[X][Y])) // index 2 is fertilizer
+                            {
+                                System.out.println("Sucessfully Fertilized Plant");
+                            }
+                            break; 
+
+                        case 5:
+                            if (myFarmer.harvestCrop(newFarm.getFarm()[X][Y]))
+                            {
+                                System.out.println("Sucessfully Harvested Plant");
+                                System.out.println(newFarm.getFarm()[X][Y].getCrop().getName() + "s Harvested: " + newFarm.getFarm()[X][Y].getCrop().getProducts());
+                                System.out.println("ObjectCoins Gained: " + newFarm.getFarm()[X][Y].getCrop().getFinalHarvestPrice());
+
+                                Crop current = newFarm.getFarm()[X][Y].getCrop(); 
+                                current = null;
+                            }
                     }
                 }
-                
+
+                newFarm.NewDay();
             }
 
         } 
