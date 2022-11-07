@@ -52,4 +52,9 @@ public class Lot
     {
         return plowed;
     }
+
+    public void HarvestCrop()
+    {
+        crop = null;
+    }
 }

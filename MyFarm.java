@@ -10,7 +10,7 @@ public class MyFarm
     this.Name = Name;
   }
 
-  private int TotalDays = 0; 
+  private int TotalDays = 1; 
 
   private ArrayList<Seed> SeedList = new ArrayList<Seed>();
   private ArrayList<Tool> ToolList = new ArrayList<Tool>();
