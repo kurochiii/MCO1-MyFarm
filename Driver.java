@@ -161,6 +161,6 @@ public class Driver
             }
 
         } 
-
+        sc.close();
     }
 }
