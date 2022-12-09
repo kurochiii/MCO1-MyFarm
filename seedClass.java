@@ -9,13 +9,14 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JOptionPane;
 // import javax.swing.border.Border;
 import javax.swing.border.CompoundBorder;
 
 public class seedClass{
     private JFrame frame1;
 
-    public seedClass(JFrame frame1){
+    public seedClass(JFrame frame1, MyFarm myfarm, Farmer myfarmer, int[] SelectedLot){
         this.frame1 = new JFrame();
 
         ImageIcon turnipPlant = new ImageIcon("turnip.png");
@@ -34,7 +35,35 @@ public class seedClass{
         turnipBtn.setBorder(BorderFactory.createEmptyBorder());
         turnipBtn.addActionListener(new ActionListener(){
             @Override
-            public void actionPerformed(ActionEvent e){
+            public void actionPerformed(ActionEvent e)
+            {
+                if(SelectedLot[0] == 99 && SelectedLot[1] == 99)
+                {
+                    JOptionPane.showMessageDialog(null, "Select a Lot", null, JOptionPane.INFORMATION_MESSAGE);
+                }
+                else
+                {
+                    if (myfarm.getFarm()[SelectedLot[0]][SelectedLot[1]].getPlowed() == true &&
+                        myfarm.getFarm()[SelectedLot[0]][SelectedLot[1]].getCrop() == null &&
+                        myfarm.getFarm()[SelectedLot[0]][SelectedLot[1]].getRock() == false)
+                    {
+                        if (myfarmer.plantCrop(0, myfarm.getSeedList(), myfarm.getFarm()[SelectedLot[0]][SelectedLot[1]]))
+                        {
+                            Welcome.updateData(myfarm, myfarmer);
+                            lotClass.Updatebutton(myfarm);
+                        }
+                        else
+                        {
+                            JOptionPane.showMessageDialog(null, "Not enough money", null, JOptionPane.INFORMATION_MESSAGE);
+                        }
+                    }
+                    else
+                    {
+                        JOptionPane.showMessageDialog(null, "Unable to Plant Crop", null, JOptionPane.INFORMATION_MESSAGE);
+                    }
+                    SelectedLot[0] = 99; 
+                    SelectedLot[1] = 99;
+                }
 
             }
         });

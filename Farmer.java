@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 public class Farmer 
 {
+    private double experience;
     private int level;
     private FarmerType typeofFarmer;
     private int objectCoin;
@@ -12,11 +13,11 @@ public class Farmer
      * @param name This parameter is the name of the Farmer
      * @param FarmerTypes This parameter is an arraylist of FarmerType
      */
-    public Farmer(String name, ArrayList<FarmerType> FarmerTypes)
+    public Farmer(ArrayList<FarmerType> FarmerTypes)
     {
-        this.name = name;
+        this.experience = 0;
         this.level = 0; //Set starting level to 0
-        this.objectCoin = 100; //Set starting object coin to 100
+        this.objectCoin = 1000; //Set starting object coin to 100
         this.typeofFarmer = FarmerTypes.get(0);
     }
 
@@ -37,7 +38,6 @@ public class Farmer
             lot.AddCrop(new Crop(seedList.get(index)));
             value = true; 
         }
-
         return value;
     }
 
@@ -70,8 +70,17 @@ public class Farmer
                     value = true; 
                     break;
                 case 3: 
+                    lot.RemoveRock();
+                    value = true;
+                    break;
+                case 4:
+                    lot.RemoveCrop();
+                    lot.UnPlowLot();
+                    value = true;
             }
             value = true;
+            experience = experience + toolList.get(index).getExpGained();
+            convertexp();
         }
                
         return value;
@@ -97,6 +106,14 @@ public class Farmer
         value = true;
         return value;
     }
+    
+    public void convertexp()
+    {
+        if (experience >= 100 && experience < 1000)
+        {
+            level = (int)experience / 100;
+        }
+    }
 
     /**
      * getLevel is a method that gets/returns the farmers level
@@ -121,5 +138,37 @@ public class Farmer
     public int getObjectCoin()
     {
         return this.objectCoin;
+    }
+
+    public double getExp()
+    {
+        return this.experience;
+    }
+
+    public boolean checkRegFarmer()
+    {
+        boolean result = false; 
+        
+        if (level >= typeofFarmer.getLevelReq()+ 5 && typeofFarmer.getLevelReq() != 15)
+        {
+            result = true;
+        }
+
+        return result; 
+    }
+
+    public void upgradeFarmer(ArrayList<FarmerType> FarmerTypes)
+    {
+        this.typeofFarmer = FarmerTypes.get((typeofFarmer.getLevelReq() + 5)/5);
+    }
+
+    public void setName(String Name)
+    {
+        this.name = Name;
+    }
+
+    public FarmerType getType()
+    {
+        return typeofFarmer;
     }
 }

@@ -12,7 +12,7 @@ public class Seed
     protected int ProductEnd;
     protected int SeedCost;
     protected int BasePrice;
-    protected int ExpYield;
+    protected double ExpYield;
 
     /**
      * The constructor sets the different attributes stated in Seed class
@@ -31,7 +31,7 @@ public class Seed
      */
     public Seed(String Name, String CropType, int HarvestTime, int WaterNeeds,
                 int WaterBonus, int FertilizerNeeds, int FertilizerBonus, int ProductStart,
-                int ProductEnd, int SeedCost, int BasePrice, int ExpYield)
+                int ProductEnd, int SeedCost, int BasePrice, double ExpYield)
     {
         this.Name = Name;
         this.CropType = CropType;
@@ -175,7 +175,7 @@ public class Seed
      * getExpYield is the method that gets/returns the amount of experience yielded from harvesting the crop
      * @return the amount of experience yielded from harvesting the crop
      */
-    public int getExpYield()
+    public double getExpYield()
     {
         return ExpYield;
     }

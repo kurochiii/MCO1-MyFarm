@@ -6,12 +6,13 @@ import java.awt.event.ActionListener;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 
-
+import javax.lang.model.type.NullType;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 // import javax.swing.border.Border;
@@ -19,8 +20,14 @@ import javax.swing.border.CompoundBorder;
 
 public class Welcome {
     private JFrame frame1;
+    String farmername;
+    static JLabel seedLabel;
+    static JLabel objectCoinLabel;
+    static JLabel farmerLevelLabel;
+    static JLabel farmerTypeLabel;
+    static JLabel dayLabel;
 
-    public Welcome(JFrame frame1){
+    public Welcome(JFrame frame1, MyFarm myfarm, Farmer myfarmer){
         this.frame1 = new JFrame();
 
         ImageIcon enterBtn = new ImageIcon("enterbtn.png");  
@@ -56,13 +63,15 @@ public class Welcome {
         enterNameBtn.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
-                farmerNameLbl.setText("Hello " + farmerNameText.getText() + "!");
+                farmername = farmerNameText.getText();
+                farmerNameLbl.setText("Hello " + farmername + "!");
                 farmerNameText.setVisible(false);
                 enterNameBtn.setVisible(false);
             }
         });
+        myfarmer.setName(farmername);
 
-        JLabel seedLabel = new JLabel();
+        seedLabel = new JLabel();
         seedLabel.setIcon(seedIcon);
         seedLabel.setText("Harvested: ");
         seedLabel.setVerticalTextPosition(3);
@@ -70,25 +79,25 @@ public class Welcome {
         seedLabel.setForeground(Color.lightGray); //Text color
         seedLabel.setFont(new Font("Clock", Font.PLAIN, 11));
 
-        JLabel objectCoinLabel = new JLabel();
+        objectCoinLabel = new JLabel();
         objectCoinLabel.setIcon(coin);
-        objectCoinLabel.setText("100");
+        objectCoinLabel.setText(String.valueOf(myfarmer.getObjectCoin()));
         objectCoinLabel.setVerticalTextPosition(3);
         objectCoinLabel.setHorizontalTextPosition(0);
         objectCoinLabel.setForeground(Color.lightGray); //Text color
         objectCoinLabel.setFont(new Font("Clock", Font.PLAIN, 13));
 
-        JLabel farmerLevelLabel = new JLabel();
+        farmerLevelLabel = new JLabel();
         farmerLevelLabel.setIcon(levelIcon);
-        farmerLevelLabel.setText("Farmer Level: ");
+        farmerLevelLabel.setText("Farmer Level: " + myfarmer.getLevel());
         farmerLevelLabel.setVerticalTextPosition(3);
         farmerLevelLabel.setHorizontalTextPosition(0);
         farmerLevelLabel.setForeground(Color.lightGray); //Text color
         farmerLevelLabel.setFont(new Font("Clock", Font.PLAIN, 11));
 
-        JLabel farmerTypeLabel = new JLabel();
+        farmerTypeLabel = new JLabel();
         farmerTypeLabel.setIcon(fType);
-        farmerTypeLabel.setText("Farmer Type: ");
+        farmerTypeLabel.setText("Farmer Type: " + myfarmer.getType().getName());
         farmerTypeLabel.setVerticalTextPosition(3);
         farmerTypeLabel.setHorizontalTextPosition(0);
         farmerTypeLabel.setForeground(Color.lightGray); //Text color
@@ -101,14 +110,23 @@ public class Welcome {
         upgradeLevelBtn.setBorder(BorderFactory.createEmptyBorder());
         upgradeLevelBtn.addActionListener(new ActionListener(){
             @Override
-            public void actionPerformed(ActionEvent e){
-
+            public void actionPerformed(ActionEvent e)
+            {
+                if(myfarmer.checkRegFarmer())
+                {
+                    myfarmer.upgradeFarmer(myfarm.getFarmerTypes());
+                    farmerTypeLabel.setText("Farmer Type: " + myfarmer.getType().getName());
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null, "Cannot Upgrade Farmer Type", null, JOptionPane.INFORMATION_MESSAGE);
+                }
             }
         });
 
-        JLabel dayLabel = new JLabel();
+        dayLabel = new JLabel();
         dayLabel.setIcon(dayIcon);
-        dayLabel.setText("Day: ");
+        dayLabel.setText("Day: " + myfarm.getTotalDays());
         dayLabel.setVerticalTextPosition(3);
         dayLabel.setHorizontalTextPosition(0);
         dayLabel.setForeground(Color.lightGray); //Text color
@@ -122,7 +140,9 @@ public class Welcome {
         nextDayBtn.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
-
+                myfarm.NewDay();
+                updateData(myfarm, myfarmer);
+                lotClass.Updatebutton(myfarm);
             }
         });
 
@@ -147,5 +167,14 @@ public class Welcome {
         welcomePanel.add(nextDayBtn);
 
         frame1.add(welcomePanel, BorderLayout.NORTH);
+    }
+
+    public static void updateData(MyFarm myfarm, Farmer myfarmer)
+    {
+        seedLabel.setText("Harvested: ");
+        objectCoinLabel.setText(String.valueOf(myfarmer.getObjectCoin()));
+        farmerLevelLabel.setText("Farmer Level: " + myfarmer.getLevel());
+        farmerTypeLabel.setText("Farmer Type: " + myfarmer.getType().getName());
+        dayLabel.setText("Day: " + myfarm.getTotalDays());
     }
 } 

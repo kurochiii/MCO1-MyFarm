@@ -5,6 +5,7 @@ public class Crop extends Seed
     private int PlantedDays; 
     private int Products; 
     private int FinalHarvestPrice;
+    private int status; 
 
     /**
      * This contructor allows the Crop class to instantiate the Seed class
@@ -16,6 +17,7 @@ public class Crop extends Seed
         seed.getFertilizerNeeds(), seed.getFertilizerBonus(), seed.getProductStart(), seed.getProductEnd(), seed.getSeedCost(),
         seed.getBasePrice(), seed.getExpYield());  
 
+        this.status = 0; 
         this.TimesFertilized = 0;
         this.TimesWatered = 0;
         this.PlantedDays = 1 ;
@@ -50,19 +52,25 @@ public class Crop extends Seed
      * CheckforHarvest is a method if a crop meets the requirements of being harvested
      * @return a boolean value that shows if crop can be harvested
      */
-    public boolean CheckforHarvest()
+    public int CheckStatus()
     {
-        boolean ok = false; 
-
         if (PlantedDays == HarvestTime)
         {
             if (TimesFertilized >= FertilizerNeeds && TimesWatered >= WaterNeeds)
             {
-                ok = true;
+                status = 1;
             }
         }
+        else if(PlantedDays > HarvestTime)
+        {
+            status = 2;
+        }
+        else 
+        {
+            status = 0;
+        }
 
-        return ok; 
+        return status; 
     }
 
     /**
@@ -106,6 +114,9 @@ public class Crop extends Seed
         FBonus = HarvestTotal * 0.2 * (TimesFertilized -1);
 
         finaldoubleprice = HarvestTotal + WBonus + FBonus;
+
+        if(CropType.equals("Flower"))
+            finaldoubleprice = finaldoubleprice * 1.1;
 
         FinalHarvestPrice = (int)finaldoubleprice;
     }

@@ -1,4 +1,5 @@
 public class FarmerType{
+    private String name;
     private int levelReq;
     private int bonusPro;
     private int seedReduc;
@@ -15,9 +16,10 @@ public class FarmerType{
      * @param fertilizerBLI This parameter is the fertilizer bonus limit increase of the farmer type
      * @param regFee This parameter is the registration fee of the farmer type
      */
-    public FarmerType(int levelReq, int bonusPro, int seedReduc,
+    public FarmerType(String name, int levelReq, int bonusPro, int seedReduc,
                     int waterBLI, int fertilizerBLI, int regFee)
     {
+        this.name = name;
         this.levelReq = levelReq;
         this.bonusPro = bonusPro;
         this.seedReduc = seedReduc;
@@ -78,5 +80,10 @@ public class FarmerType{
     public int getRegFee()
     {
         return this.regFee;
+    }
+
+    public String getName()
+    {
+        return this.name;
     }
 }

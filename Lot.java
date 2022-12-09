@@ -1,7 +1,7 @@
 public class Lot 
 {
-    private Crop crop; 
-    private boolean rock = true; 
+    private Crop crop = null; 
+    private boolean rock = false; 
     private boolean plowed = false; 
     private int xLocation; 
     private int yLocation;
@@ -12,8 +12,7 @@ public class Lot
      * @param yLocation This parameter represents the y coordinate location of the lot
      */
     public Lot(int xLocation, int yLocation) // need to add randomizer for rocks 
-    {
-        this.plowed = false; 
+    { 
         this.xLocation = xLocation;
         this.yLocation = yLocation;
     }
@@ -40,6 +39,11 @@ public class Lot
     public void RemoveRock()
     {
         rock = false;
+    }
+
+    public void AddRock()
+    {
+        rock = true;
     }
 
     /**
@@ -87,11 +91,48 @@ public class Lot
         return plowed;
     }
 
+    public boolean getRock()
+    {
+        return rock;
+    }
+
     /**
      * HarvestCrop is a method that makes crop null since it is harvested
      */
-    public void HarvestCrop()
+    public void RemoveCrop()
     {
         crop = null;
+    }
+    
+    public boolean plantable(MyFarm myfarm, Seed seed)
+    {
+      boolean result = false; 
+      if (crop == null && plowed == true && rock == false)
+      {
+        if (seed.CropType.equals("Fruit Tree"))
+        {
+            if(xLocation != 0 && xLocation != 4 && yLocation != 0 && yLocation != 9)
+            {
+                if(myfarm.getFarm()[xLocation - 1][yLocation - 1].getCrop() == null &&
+                   myfarm.getFarm()[xLocation][yLocation - 1].getCrop() == null &&
+                   myfarm.getFarm()[xLocation + 1][yLocation - 1].getCrop() == null &&
+                   myfarm.getFarm()[xLocation - 1][yLocation].getCrop() == null &&
+                   myfarm.getFarm()[xLocation - 1][yLocation - 1].getCrop() == null &&
+                   myfarm.getFarm()[xLocation + 1][yLocation].getCrop() == null &&
+                   myfarm.getFarm()[xLocation - 1][yLocation + 1].getCrop() == null &&
+                   myfarm.getFarm()[xLocation][yLocation + 1].getCrop() == null &&
+                   myfarm.getFarm()[xLocation + 1][yLocation + 1].getCrop() == null
+                )
+                {
+                    result = true; 
+                }
+            }
+        }
+        else 
+        {
+            result = true; 
+        }
+      }
+      return result;
     }
 }
