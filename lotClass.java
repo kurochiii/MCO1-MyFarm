@@ -16,24 +16,39 @@ import javax.swing.border.CompoundBorder;
 public class lotClass{
     private JFrame frame1;
     static JButton lotBtn[][] = new JButton[5][10];
-    static ImageIcon pGrass;
-    static ImageIcon nGrass;
+    static ImageIcon plowed;
     static ImageIcon unplowed;
     static ImageIcon rocks;
     static ImageIcon wPlant;
     static ImageIcon gPlant;
+    static ImageIcon turnip;
+    static ImageIcon carrot;
+    static ImageIcon potato;
+    static ImageIcon rose;
+    static ImageIcon tulips;
+    static ImageIcon sunflower;
+    static ImageIcon mango;
+    static ImageIcon apple;
+
 
     public lotClass(JFrame frame1, MyFarm myfarm, int[] SelectedLot){
         this.frame1 = new JFrame();
 
         JPanel lotPanel = new JPanel();
 
-        pGrass = new ImageIcon("pGrass.png");
-        nGrass = new ImageIcon("nGrass.png");
+        plowed = new ImageIcon("pGrass.png");
         unplowed = new ImageIcon("unplowed.png");
         rocks = new ImageIcon("rocks.png");
         wPlant = new ImageIcon("Wplant.png");
-        gPlant = new ImageIcon("Gplant.png");
+        gPlant = new ImageIcon("gPlant.png");
+        turnip = new ImageIcon("turnipGrown.png");
+        carrot = new ImageIcon("carrotGrown.png");
+        potato = new ImageIcon("potatoGrown.png");
+        rose = new ImageIcon("roseGrown.png");
+        tulips = new ImageIcon("tulipGrown.png");
+        sunflower = new ImageIcon("sunflowerGrown.png");
+        mango = new ImageIcon("mangoTree.png");
+        apple = new ImageIcon("appleTree.png");
 
         lotPanel.setBackground(new Color(0xe7cda3));
         lotPanel.setBorder(new CompoundBorder(
@@ -54,6 +69,21 @@ public class lotClass{
                             {
                                 SelectedLot[0] = i; 
                                 SelectedLot[1] = j;
+                                if(myfarm.getFarm()[SelectedLot[0]][SelectedLot[1]].getCrop() instanceof Crop)
+                                {
+                                    if(myfarm.getFarm()[SelectedLot[0]][SelectedLot[1]].getCrop().CheckStatus() == 1)
+                                    {
+                                        seedClass.updateHarvest();
+                                    }
+                                    else
+                                    {
+                                        seedClass.updateInfo();
+                                    }
+                                }
+                                else
+                                {
+                                    seedClass.update();
+                                }
                             }
                         }
                     }
@@ -93,7 +123,7 @@ public class lotClass{
             {
                 if(myfarm.getFarm()[i][j].getPlowed())
                 {
-                    lotBtn[i][j].setIcon(nGrass);
+                    lotBtn[i][j].setIcon(plowed);
                 }
                 if(myfarm.getFarm()[i][j].getPlowed() == true && myfarm.getFarm()[i][j].getCrop() instanceof Crop)
                 {
@@ -103,7 +133,40 @@ public class lotClass{
                     }
                     else if(myfarm.getFarm()[i][j].getCrop().CheckStatus() == 1)
                     {
-                        lotBtn[i][j].setIcon(pGrass);
+                        switch(myfarm.getFarm()[i][j].getCrop().getName())
+                        {
+                            case "Turnip":
+                                lotBtn[i][j].setIcon(turnip);
+                                break;
+
+                            case "Carrot":
+                                lotBtn[i][j].setIcon(carrot);
+                                break;
+
+                            case "Potato":
+                                lotBtn[i][j].setIcon(potato);
+                                break;
+
+                            case "Rose":
+                                lotBtn[i][j].setIcon(rose);
+                                break;
+
+                            case "Tulips":
+                                lotBtn[i][j].setIcon(tulips);
+                                break;
+
+                            case "Sunflower":
+                                lotBtn[i][j].setIcon(sunflower);
+                                break;
+
+                            case "Mango":
+                                lotBtn[i][j].setIcon(mango);
+                                break;
+
+                            case "Apple":
+                                lotBtn[i][j].setIcon(apple);
+                                break;
+                        }
                     }
                     else if(myfarm.getFarm()[i][j].getCrop().CheckStatus() == 2)
                     {

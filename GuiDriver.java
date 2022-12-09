@@ -8,7 +8,7 @@ public class GuiDriver {
         JFrame frame1 = new JFrame();
         frame1.setTitle("My Farming Adventures");
         frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame1.setSize(1000, 700);
+        frame1.setSize(1050, 700);
         frame1.setResizable(false);
         frame1.setLayout(new BorderLayout());
         

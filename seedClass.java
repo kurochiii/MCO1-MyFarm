@@ -15,6 +15,8 @@ import javax.swing.border.CompoundBorder;
 
 public class seedClass{
     private JFrame frame1;
+    static JButton harvestBtn;
+    static JButton infoBtn;
 
     public seedClass(JFrame frame1, MyFarm myfarm, Farmer myfarmer, int[] SelectedLot){
         this.frame1 = new JFrame();
@@ -27,7 +29,8 @@ public class seedClass{
         ImageIcon sunflower = new ImageIcon("sunflower.png");
         ImageIcon mangoTree = new ImageIcon("mango.png");
         ImageIcon appleTree = new ImageIcon("apple.png");
-        ImageIcon harvestButton = new ImageIcon("apple.png");
+        ImageIcon harvestButton = new ImageIcon("harvest.gif");
+        ImageIcon InfoButton = new ImageIcon("info.png");
 
         JButton turnipBtn = new JButton();
         turnipBtn.setIcon(turnipPlant);
@@ -378,14 +381,40 @@ public class seedClass{
             }
         });
 
-        JButton harvestBtn = new JButton();
-        harvestBtn.setIcon(appleTree);
+        harvestBtn = new JButton();
+        harvestBtn.setIcon(harvestButton);
         harvestBtn.setBackground(new Color(0xE3D308));
         harvestBtn.setContentAreaFilled(true);
         harvestBtn.setBorder(BorderFactory.createEmptyBorder());
         harvestBtn.addActionListener(new ActionListener(){
             @Override
-            public void actionPerformed(ActionEvent e){}
+            public void actionPerformed(ActionEvent e)
+            {
+                if (myfarmer.harvestCrop(myfarm.getFarm()[SelectedLot[0]][SelectedLot[1]]))
+                {
+                    Welcome.updateData(myfarm, myfarmer);
+                    lotClass.Updatebutton(myfarm);
+                    JOptionPane.showMessageDialog(null, "Results of Harvest \n" +  "Harvested " + myfarm.getFarm()[SelectedLot[0]][SelectedLot[1]].getCrop().getProducts() + " " + myfarm.getFarm()[SelectedLot[0]][SelectedLot[1]].getCrop().getName() + "\nObjectCoin Earned: " + myfarm.getFarm()[SelectedLot[0]][SelectedLot[1]].getCrop().getFinalHarvestPrice(), 
+                                            null, JOptionPane.INFORMATION_MESSAGE);
+                    Welcome.updateData(myfarm, myfarmer);
+                    seedClass.update();
+                }
+            }
+        });
+
+        infoBtn = new JButton();
+        infoBtn.setIcon(InfoButton);
+        infoBtn.setBackground(new Color(0xE3D308));
+        infoBtn.setContentAreaFilled(true);
+        infoBtn.setBorder(BorderFactory.createEmptyBorder());
+        infoBtn.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                JOptionPane.showMessageDialog(null, "Plant Status \n" + myfarm.getFarm()[SelectedLot[0]][SelectedLot[1]].getCrop().getName() + "\n# of Times Watered:  " + myfarm.getFarm()[SelectedLot[0]][SelectedLot[1]].getCrop().getTimesWatered() + "\n# of Times Fertilized: " + myfarm.getFarm()[SelectedLot[0]][SelectedLot[1]].getCrop().getTimesFertilized() + "\nDays old: " + myfarm.getFarm()[SelectedLot[0]][SelectedLot[1]].getCrop().getPlantedDays(), 
+                                            null, JOptionPane.INFORMATION_MESSAGE);
+                seedClass.update();
+            }
         });
 
         JPanel seedPanel = new JPanel();
@@ -404,8 +433,30 @@ public class seedClass{
         seedPanel.add(sunflowerBtn);
         seedPanel.add(mangoBtn);
         seedPanel.add(appleBtn);
+        seedPanel.add(harvestBtn);
+        seedPanel.add(infoBtn);
 
         frame1.add(seedPanel, BorderLayout.SOUTH);
 
+        update();
     }
+
+    public static void updateHarvest()
+    {
+        harvestBtn.setVisible(true);
+        infoBtn.setVisible(false);
+    }
+
+    public static void updateInfo()
+    {
+        harvestBtn.setVisible(false);
+        infoBtn.setVisible(true);
+    }
+
+    public static void update()
+    {
+        harvestBtn.setVisible(false);
+        infoBtn.setVisible(false);
+    }
+
 }

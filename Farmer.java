@@ -102,6 +102,7 @@ public class Farmer
         objectCoin = objectCoin + lot.getCrop().getFinalHarvestPrice();
 
         lot.UnPlowLot();
+        lot.RemoveCrop();
 
         value = true;
         return value;

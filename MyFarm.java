@@ -26,7 +26,7 @@ public class MyFarm
   public void setGame()
   {
     Seed turnip = new Seed("Turnip", "Root Crop", 2, 1, 2, 0, 1, 1, 2, 5, 6, 5);
-    Seed carrot = new Seed("Carot","Root Crop",3,1,2,0,1,1,2,10,9,7.5);
+    Seed carrot = new Seed("Carrot","Root Crop",3,1,2,0,1,1,2,10,9,7.5);
     Seed potato = new Seed("Potato", "Root Crop", 5, 3, 4, 1, 2, 1, 10, 20, 3, 12.5);
     Seed rose = new Seed("Rose", "Flower", 1, 1, 2, 0, 1, 1, 1, 5, 5, 2.5);
     Seed tulips = new Seed("Tulips", "Flower", 2, 2, 3, 0, 1, 1, 1, 10, 9, 5);

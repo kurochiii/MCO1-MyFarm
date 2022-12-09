@@ -147,4 +147,14 @@ public class Crop extends Seed
     {
         return FinalHarvestPrice;
     }
+
+    public int getTimesWatered()
+    {
+        return TimesWatered;
+    }
+
+    public int getTimesFertilized()
+    {
+        return TimesFertilized;
+    }
 }

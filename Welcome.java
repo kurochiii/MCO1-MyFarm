@@ -21,7 +21,6 @@ import javax.swing.border.CompoundBorder;
 public class Welcome {
     private JFrame frame1;
     String farmername;
-    static JLabel seedLabel;
     static JLabel objectCoinLabel;
     static JLabel farmerLevelLabel;
     static JLabel farmerTypeLabel;
@@ -149,7 +148,6 @@ public class Welcome {
         welcomePanel.add(farmerNameText);
         welcomePanel.add(farmerNameLbl);
         welcomePanel.add(enterNameBtn);
-        welcomePanel.add(seedLabel);
         welcomePanel.add(objectCoinLabel);
         welcomePanel.add(farmerLevelLabel);
         welcomePanel.add(farmerTypeLabel);
@@ -162,7 +160,6 @@ public class Welcome {
 
     public static void updateData(MyFarm myfarm, Farmer myfarmer)
     {
-        seedLabel.setText("Harvested: ");
         objectCoinLabel.setText(String.valueOf(myfarmer.getObjectCoin()));
         farmerLevelLabel.setText("Farmer Level: " + myfarmer.getLevel());
         farmerTypeLabel.setText("Farmer Type: " + myfarmer.getType().getName());
