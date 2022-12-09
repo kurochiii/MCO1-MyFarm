@@ -37,7 +37,6 @@ public class Welcome {
         ImageIcon levelIcon = new ImageIcon("level.gif");
         ImageIcon dayIcon = new ImageIcon("day.png");
         ImageIcon fType = new ImageIcon("fType.png");
-        ImageIcon seedIcon = new ImageIcon("seed.gif");
         ImageIcon registerIcon = new ImageIcon("register.gif");
 
         JLabel farmerNameLbl = new JLabel();
@@ -70,14 +69,6 @@ public class Welcome {
             }
         });
         myfarmer.setName(farmername);
-
-        seedLabel = new JLabel();
-        seedLabel.setIcon(seedIcon);
-        seedLabel.setText("Harvested: ");
-        seedLabel.setVerticalTextPosition(3);
-        seedLabel.setHorizontalTextPosition(0);
-        seedLabel.setForeground(Color.lightGray); //Text color
-        seedLabel.setFont(new Font("Clock", Font.PLAIN, 11));
 
         objectCoinLabel = new JLabel();
         objectCoinLabel.setIcon(coin);

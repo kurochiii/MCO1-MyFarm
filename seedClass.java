@@ -27,6 +27,7 @@ public class seedClass{
         ImageIcon sunflower = new ImageIcon("sunflower.png");
         ImageIcon mangoTree = new ImageIcon("mango.png");
         ImageIcon appleTree = new ImageIcon("apple.png");
+        ImageIcon harvestButton = new ImageIcon("apple.png");
 
         JButton turnipBtn = new JButton();
         turnipBtn.setIcon(turnipPlant);
@@ -375,6 +376,16 @@ public class seedClass{
                     SelectedLot[1] = 99;
                 }
             }
+        });
+
+        JButton harvestBtn = new JButton();
+        harvestBtn.setIcon(appleTree);
+        harvestBtn.setBackground(new Color(0xE3D308));
+        harvestBtn.setContentAreaFilled(true);
+        harvestBtn.setBorder(BorderFactory.createEmptyBorder());
+        harvestBtn.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){}
         });
 
         JPanel seedPanel = new JPanel();
