@@ -35,7 +35,7 @@ public class lotClass{
         wPlant = new ImageIcon("Wplant.png");
         gPlant = new ImageIcon("Gplant.png");
 
-        lotPanel.setBackground(new Color(0x36454F));
+        lotPanel.setBackground(new Color(0xe7cda3));
         lotPanel.setBorder(new CompoundBorder(
             BorderFactory.createMatteBorder(4, 4, 4, 4, new Color(0xE3D308)),
             BorderFactory.createMatteBorder(3, 3, 3, 3, Color.white)
