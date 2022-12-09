@@ -115,7 +115,7 @@ public class Welcome {
                 if(myfarmer.checkRegFarmer())
                 {
                     myfarmer.upgradeFarmer(myfarm.getFarmerTypes());
-                    farmerTypeLabel.setText("Farmer Type: " + myfarmer.getType().getName());
+                    updateData(myfarm, myfarmer);
                 }
                 else
                 {

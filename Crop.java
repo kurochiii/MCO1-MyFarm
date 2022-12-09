@@ -20,7 +20,7 @@ public class Crop extends Seed
         this.status = 0; 
         this.TimesFertilized = 0;
         this.TimesWatered = 0;
-        this.PlantedDays = 1 ;
+        this.PlantedDays = 0 ;
 
     }
 

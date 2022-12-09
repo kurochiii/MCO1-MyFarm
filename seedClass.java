@@ -64,7 +64,6 @@ public class seedClass{
                     SelectedLot[0] = 99; 
                     SelectedLot[1] = 99;
                 }
-
             }
         });
 
@@ -76,7 +75,33 @@ public class seedClass{
         carrotBtn.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
-
+                if(SelectedLot[0] == 99 && SelectedLot[1] == 99)
+                {
+                    JOptionPane.showMessageDialog(null, "Select a Lot", null, JOptionPane.INFORMATION_MESSAGE);
+                }
+                else
+                {
+                    if (myfarm.getFarm()[SelectedLot[0]][SelectedLot[1]].getPlowed() == true &&
+                        myfarm.getFarm()[SelectedLot[0]][SelectedLot[1]].getCrop() == null &&
+                        myfarm.getFarm()[SelectedLot[0]][SelectedLot[1]].getRock() == false)
+                    {
+                        if (myfarmer.plantCrop(1, myfarm.getSeedList(), myfarm.getFarm()[SelectedLot[0]][SelectedLot[1]]))
+                        {
+                            Welcome.updateData(myfarm, myfarmer);
+                            lotClass.Updatebutton(myfarm);
+                        }
+                        else
+                        {
+                            JOptionPane.showMessageDialog(null, "Not enough money", null, JOptionPane.INFORMATION_MESSAGE);
+                        }
+                    }
+                    else
+                    {
+                        JOptionPane.showMessageDialog(null, "Unable to Plant Crop", null, JOptionPane.INFORMATION_MESSAGE);
+                    }
+                    SelectedLot[0] = 99; 
+                    SelectedLot[1] = 99;
+                }
             }
         });
 
@@ -88,7 +113,33 @@ public class seedClass{
         potatoBtn.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
-
+                if(SelectedLot[0] == 99 && SelectedLot[1] == 99)
+                {
+                    JOptionPane.showMessageDialog(null, "Select a Lot", null, JOptionPane.INFORMATION_MESSAGE);
+                }
+                else
+                {
+                    if (myfarm.getFarm()[SelectedLot[0]][SelectedLot[1]].getPlowed() == true &&
+                        myfarm.getFarm()[SelectedLot[0]][SelectedLot[1]].getCrop() == null &&
+                        myfarm.getFarm()[SelectedLot[0]][SelectedLot[1]].getRock() == false)
+                    {
+                        if (myfarmer.plantCrop(2, myfarm.getSeedList(), myfarm.getFarm()[SelectedLot[0]][SelectedLot[1]]))
+                        {
+                            Welcome.updateData(myfarm, myfarmer);
+                            lotClass.Updatebutton(myfarm);
+                        }
+                        else
+                        {
+                            JOptionPane.showMessageDialog(null, "Not enough money", null, JOptionPane.INFORMATION_MESSAGE);
+                        }
+                    }
+                    else
+                    {
+                        JOptionPane.showMessageDialog(null, "Unable to Plant Crop", null, JOptionPane.INFORMATION_MESSAGE);
+                    }
+                    SelectedLot[0] = 99; 
+                    SelectedLot[1] = 99;
+                }
             }
         });
 
@@ -100,7 +151,33 @@ public class seedClass{
         roseBtn.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
-
+                if(SelectedLot[0] == 99 && SelectedLot[1] == 99)
+                {
+                    JOptionPane.showMessageDialog(null, "Select a Lot", null, JOptionPane.INFORMATION_MESSAGE);
+                }
+                else
+                {
+                    if (myfarm.getFarm()[SelectedLot[0]][SelectedLot[1]].getPlowed() == true &&
+                        myfarm.getFarm()[SelectedLot[0]][SelectedLot[1]].getCrop() == null &&
+                        myfarm.getFarm()[SelectedLot[0]][SelectedLot[1]].getRock() == false)
+                    {
+                        if (myfarmer.plantCrop(3, myfarm.getSeedList(), myfarm.getFarm()[SelectedLot[0]][SelectedLot[1]]))
+                        {
+                            Welcome.updateData(myfarm, myfarmer);
+                            lotClass.Updatebutton(myfarm);
+                        }
+                        else
+                        {
+                            JOptionPane.showMessageDialog(null, "Not enough money", null, JOptionPane.INFORMATION_MESSAGE);
+                        }
+                    }
+                    else
+                    {
+                        JOptionPane.showMessageDialog(null, "Unable to Plant Crop", null, JOptionPane.INFORMATION_MESSAGE);
+                    }
+                    SelectedLot[0] = 99; 
+                    SelectedLot[1] = 99;
+                }
             }
         });
 
@@ -112,7 +189,33 @@ public class seedClass{
         tulipsBtn.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
-
+                if(SelectedLot[0] == 99 && SelectedLot[1] == 99)
+                {
+                    JOptionPane.showMessageDialog(null, "Select a Lot", null, JOptionPane.INFORMATION_MESSAGE);
+                }
+                else
+                {
+                    if (myfarm.getFarm()[SelectedLot[0]][SelectedLot[1]].getPlowed() == true &&
+                        myfarm.getFarm()[SelectedLot[0]][SelectedLot[1]].getCrop() == null &&
+                        myfarm.getFarm()[SelectedLot[0]][SelectedLot[1]].getRock() == false)
+                    {
+                        if (myfarmer.plantCrop(4, myfarm.getSeedList(), myfarm.getFarm()[SelectedLot[0]][SelectedLot[1]]))
+                        {
+                            Welcome.updateData(myfarm, myfarmer);
+                            lotClass.Updatebutton(myfarm);
+                        }
+                        else
+                        {
+                            JOptionPane.showMessageDialog(null, "Not enough money", null, JOptionPane.INFORMATION_MESSAGE);
+                        }
+                    }
+                    else
+                    {
+                        JOptionPane.showMessageDialog(null, "Unable to Plant Crop", null, JOptionPane.INFORMATION_MESSAGE);
+                    }
+                    SelectedLot[0] = 99; 
+                    SelectedLot[1] = 99;
+                }
             }
         });
 
@@ -124,7 +227,33 @@ public class seedClass{
         sunflowerBtn.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
-
+                if(SelectedLot[0] == 99 && SelectedLot[1] == 99)
+                {
+                    JOptionPane.showMessageDialog(null, "Select a Lot", null, JOptionPane.INFORMATION_MESSAGE);
+                }
+                else
+                {
+                    if (myfarm.getFarm()[SelectedLot[0]][SelectedLot[1]].getPlowed() == true &&
+                        myfarm.getFarm()[SelectedLot[0]][SelectedLot[1]].getCrop() == null &&
+                        myfarm.getFarm()[SelectedLot[0]][SelectedLot[1]].getRock() == false)
+                    {
+                        if (myfarmer.plantCrop(5, myfarm.getSeedList(), myfarm.getFarm()[SelectedLot[0]][SelectedLot[1]]))
+                        {
+                            Welcome.updateData(myfarm, myfarmer);
+                            lotClass.Updatebutton(myfarm);
+                        }
+                        else
+                        {
+                            JOptionPane.showMessageDialog(null, "Not enough money", null, JOptionPane.INFORMATION_MESSAGE);
+                        }
+                    }
+                    else
+                    {
+                        JOptionPane.showMessageDialog(null, "Unable to Plant Crop", null, JOptionPane.INFORMATION_MESSAGE);
+                    }
+                    SelectedLot[0] = 99; 
+                    SelectedLot[1] = 99;
+                }
             }
         });
 
@@ -136,7 +265,55 @@ public class seedClass{
         mangoBtn.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
-
+                if(SelectedLot[0] == 99 && SelectedLot[1] == 99)
+                {
+                    JOptionPane.showMessageDialog(null, "Select a Lot", null, JOptionPane.INFORMATION_MESSAGE);
+                }
+                else
+                {
+                    if (myfarm.getFarm()[SelectedLot[0]][SelectedLot[1]].getPlowed() == true &&
+                        myfarm.getFarm()[SelectedLot[0]][SelectedLot[1]].getCrop() == null &&
+                        myfarm.getFarm()[SelectedLot[0]][SelectedLot[1]].getRock() == false
+                        )
+                    {
+                        if (SelectedLot[0]!= 0 && SelectedLot[0]!= 4 && SelectedLot[1]!= 0 && SelectedLot[1]!= 9)
+                        {
+                            if (myfarm.getFarm()[SelectedLot[0] - 1][SelectedLot[1] - 1].getCrop() == null &&
+                                myfarm.getFarm()[SelectedLot[0]][SelectedLot[1] - 1].getCrop() == null &&
+                                myfarm.getFarm()[SelectedLot[0] + 1][SelectedLot[1] - 1].getCrop() == null &&
+                                myfarm.getFarm()[SelectedLot[0] - 1][SelectedLot[1]].getCrop() == null &&
+                                myfarm.getFarm()[SelectedLot[0] + 1][SelectedLot[1]].getCrop() == null &&
+                                myfarm.getFarm()[SelectedLot[0] - 1][SelectedLot[1] + 1].getCrop() == null &&
+                                myfarm.getFarm()[SelectedLot[0]][SelectedLot[1] + 1].getCrop() == null &&
+                                myfarm.getFarm()[SelectedLot[0] + 1][SelectedLot[1]+ 1].getCrop() == null)
+                            {
+                                if (myfarmer.plantCrop(6, myfarm.getSeedList(), myfarm.getFarm()[SelectedLot[0]][SelectedLot[1]]))
+                                {
+                                    Welcome.updateData(myfarm, myfarmer);
+                                    lotClass.Updatebutton(myfarm);
+                                }
+                                else
+                                {
+                                    JOptionPane.showMessageDialog(null, "Not enough money", null, JOptionPane.INFORMATION_MESSAGE);
+                                }
+                            }
+                            else
+                            {
+                                JOptionPane.showMessageDialog(null, "Unable to Plant Crop", null, JOptionPane.INFORMATION_MESSAGE);
+                            }
+                        }
+                        else
+                        {
+                            JOptionPane.showMessageDialog(null, "Unable to Plant Crop", null, JOptionPane.INFORMATION_MESSAGE);
+                        }
+                    }
+                    else
+                    {
+                        JOptionPane.showMessageDialog(null, "Unable to Plant Crop", null, JOptionPane.INFORMATION_MESSAGE);
+                    }
+                    SelectedLot[0] = 99; 
+                    SelectedLot[1] = 99;
+                }
             }
         });
 
@@ -148,7 +325,55 @@ public class seedClass{
         appleBtn.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
-
+                if(SelectedLot[0] == 99 && SelectedLot[1] == 99)
+                {
+                    JOptionPane.showMessageDialog(null, "Select a Lot", null, JOptionPane.INFORMATION_MESSAGE);
+                }
+                else
+                {
+                    if (myfarm.getFarm()[SelectedLot[0]][SelectedLot[1]].getPlowed() == true &&
+                        myfarm.getFarm()[SelectedLot[0]][SelectedLot[1]].getCrop() == null &&
+                        myfarm.getFarm()[SelectedLot[0]][SelectedLot[1]].getRock() == false
+                        )
+                    {
+                        if (SelectedLot[0]!= 0 && SelectedLot[0]!= 4 && SelectedLot[1]!= 0 && SelectedLot[1]!= 9)
+                        {
+                            if (myfarm.getFarm()[SelectedLot[0] - 1][SelectedLot[1] - 1].getCrop() == null &&
+                                myfarm.getFarm()[SelectedLot[0]][SelectedLot[1] - 1].getCrop() == null &&
+                                myfarm.getFarm()[SelectedLot[0] + 1][SelectedLot[1] - 1].getCrop() == null &&
+                                myfarm.getFarm()[SelectedLot[0] - 1][SelectedLot[1]].getCrop() == null &&
+                                myfarm.getFarm()[SelectedLot[0] + 1][SelectedLot[1]].getCrop() == null &&
+                                myfarm.getFarm()[SelectedLot[0] - 1][SelectedLot[1] + 1].getCrop() == null &&
+                                myfarm.getFarm()[SelectedLot[0]][SelectedLot[1] + 1].getCrop() == null &&
+                                myfarm.getFarm()[SelectedLot[0] + 1][SelectedLot[1]+ 1].getCrop() == null)
+                            {
+                                if (myfarmer.plantCrop(7, myfarm.getSeedList(), myfarm.getFarm()[SelectedLot[0]][SelectedLot[1]]))
+                                {
+                                    Welcome.updateData(myfarm, myfarmer);
+                                    lotClass.Updatebutton(myfarm);
+                                }
+                                else
+                                {
+                                    JOptionPane.showMessageDialog(null, "Not enough money", null, JOptionPane.INFORMATION_MESSAGE);
+                                }
+                            }
+                            else
+                            {
+                                JOptionPane.showMessageDialog(null, "Unable to Plant Crop", null, JOptionPane.INFORMATION_MESSAGE);
+                            }
+                        }
+                        else
+                        {
+                            JOptionPane.showMessageDialog(null, "Unable to Plant Crop", null, JOptionPane.INFORMATION_MESSAGE);
+                        }
+                    }
+                    else
+                    {
+                        JOptionPane.showMessageDialog(null, "Unable to Plant Crop", null, JOptionPane.INFORMATION_MESSAGE);
+                    }
+                    SelectedLot[0] = 99; 
+                    SelectedLot[1] = 99;
+                }
             }
         });
 
