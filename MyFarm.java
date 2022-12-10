@@ -168,7 +168,8 @@ public class MyFarm
         { 
           if (farm[row][col].getCrop() != null)
           {
-            activeCrops++;
+            if(farm[row][col].getCrop().CheckStatus() == 0 || farm[row][col].getCrop().CheckStatus() == 1)
+              activeCrops++;
           }
         }
     }

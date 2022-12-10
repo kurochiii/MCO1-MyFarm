@@ -3,7 +3,6 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Driver;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 
@@ -15,7 +14,6 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-// import javax.swing.border.Border;
 import javax.swing.border.CompoundBorder;
 
 public class Welcome {
@@ -34,7 +32,7 @@ public class Welcome {
      * @param myfarmer This paremeter is the iteration of the Farmer class
      */
     public Welcome(JFrame frame1, MyFarm myfarm, Farmer myfarmer){
-        this.frame1 = new JFrame();
+        Welcome.frame1 = new JFrame();
         
         /*
          * Decleration of the different ImageIcon used for the labels and buttons

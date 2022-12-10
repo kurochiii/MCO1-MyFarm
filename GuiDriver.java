@@ -6,8 +6,6 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.FlowLayout;
-import javax.swing.JOptionPane;
-import javax.swing.SwingWorker;
 
 public class GuiDriver{ 
     public static void main(String[] args) {
@@ -76,8 +74,5 @@ public class GuiDriver{
         new toolClass(frame1, myfarm, myfarmer, SelectedLot);
         new seedClass(frame1, myfarm, myfarmer, SelectedLot);
         new lotClass(frame1, myfarm, SelectedLot);
-
-        lotClass.Updatebutton(myfarm);
-        Welcome.updateData(myfarm, myfarmer);
     }
 }

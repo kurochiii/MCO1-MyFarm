@@ -9,7 +9,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JOptionPane;
 import javax.swing.border.CompoundBorder;
 
 public class lotClass{
@@ -85,9 +84,13 @@ public class lotClass{
                                     {
                                         seedClass.updateHarvest();
                                     }
-                                    else
+                                    else if (myfarm.getFarm()[SelectedLot[0]][SelectedLot[1]].getCrop().CheckStatus() == 0)
                                     {
                                         seedClass.updateInfo();
+                                    }
+                                    else
+                                    {
+                                        seedClass.update();
                                     }
                                 }
                                 else
