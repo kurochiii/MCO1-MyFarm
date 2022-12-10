@@ -16,8 +16,8 @@ public class Farmer
     public Farmer(ArrayList<FarmerType> FarmerTypes)
     {
         this.experience = 0;
-        this.level = 5; //Set starting level to 0
-        this.objectCoin = 1000; //Set starting object coin to 100
+        this.level = 0; //Set starting level to 0
+        this.objectCoin = 100; //Set starting object coin to 100
         this.typeofFarmer = FarmerTypes.get(0);
     }
 
@@ -173,4 +173,5 @@ public class Farmer
     {
         return typeofFarmer;
     }
+
 }

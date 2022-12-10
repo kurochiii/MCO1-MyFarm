@@ -164,5 +164,11 @@ public class Welcome {
         farmerLevelLabel.setText("Farmer Level: " + myfarmer.getLevel());
         farmerTypeLabel.setText("Farmer Type: " + myfarmer.getType().getName());
         dayLabel.setText("Day: " + myfarm.getTotalDays());
+
+        if((myfarm.getActiveCrops() == 0 && myfarmer.getObjectCoin() < 5) || myfarm.getWitheredCrops() >= 50)
+        {
+            JOptionPane.showMessageDialog(null, "End Game", null, JOptionPane.WARNING_MESSAGE);
+
+        }
     }
 } 

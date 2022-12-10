@@ -1,10 +1,12 @@
 import java.awt.BorderLayout;
-
+import javax.swing.JOptionPane;
 import javax.swing.JFrame;
 
 public class GuiDriver {
     public static void main(String[] args) {
 
+        boolean exit = false;
+       
         JFrame frame1 = new JFrame();
         frame1.setTitle("My Farming Adventures");
         frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

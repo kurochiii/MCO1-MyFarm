@@ -3,6 +3,7 @@ import java.util.ArrayList;
 public class MyFarm 
 {
   private Lot[][] farm = new Lot[5][10]; // side of board
+  int ActiveCrops = 0; 
 
   /**
    * This constructor sets the attribute stated in MyFarm class
@@ -150,6 +151,40 @@ public class MyFarm
   public ArrayList<Tool> getToolList()
   {
     return ToolList;
+  }
+
+  public int getActiveCrops()
+  {
+    int activeCrops = 0;
+    for (int row = 0; row < farm.length; row++) 
+    { 
+      for (int col = 0; col < farm[row].length; col++) 
+        { 
+          if (farm[row][col].getCrop() != null)
+          {
+            activeCrops++;
+          }
+        }
+    }
+    return activeCrops;
+  }
+  public int getWitheredCrops()
+  {
+    int withered = 0;
+    for (int row = 0; row < farm.length; row++) 
+    { 
+      for (int col = 0; col < farm[row].length; col++) 
+        { 
+          if (farm[row][col].getCrop() != null)
+          {
+            if (farm[row][col].getCrop().CheckStatus() == 2)
+            {
+              withered++;
+            }
+          }
+        }
+    }
+    return withered;
   }
 
 }
