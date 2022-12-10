@@ -198,6 +198,10 @@ public class MyFarm
     return withered;
   }
 
+  /**
+   * checkEndGame method is a function that check whether the game condition has ended
+   * @return result whether if game is ended
+   */
   public boolean checkEndGame()
   {
     boolean result = false; 
@@ -208,11 +212,18 @@ public class MyFarm
     return result;
   }
 
+  /**
+   * setFarmer is a method where the farmer is set
+   * @param myfarmer instance of Farmer
+   */
   public void setFarmer(Farmer myfarmer)
   {
     myFarmer = myfarmer;
   }
 
+  /**
+   * RestartGame is a method where it allows the game to restart
+   */
   public void RestartGame()
   {
     myFarmer.RestartFarmer();
