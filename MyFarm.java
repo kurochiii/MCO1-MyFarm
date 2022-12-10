@@ -212,4 +212,32 @@ public class MyFarm
   {
     myFarmer = myfarmer;
   }
+
+  public void RestartGame()
+  {
+    myFarmer.RestartFarmer();
+    for (int row = 0; row < farm.length; row++) 
+    { 
+      for (int col = 0; col < farm[row].length; col++) 
+        { 
+          farm[row][col] = new Lot(row, col); // need to add randomizer for rocks 
+        }
+    }
+    
+    int rocknum = (int)Math.floor(Math.random()*(30-10+1)+10);
+    int i = 0; 
+    do 
+    {
+      int j = (int)Math.floor(Math.random()*(4-0+1)+0);
+      int k = (int)Math.floor(Math.random()*(9-0+1)+0);
+      if(farm[j][k].getRock() == false)
+      {
+        farm[j][k].AddRock();
+        i++;
+      } 
+    } while (i < rocknum);
+
+    TotalDays = 1;
+  }
 }
+

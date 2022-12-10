@@ -204,4 +204,11 @@ public class Farmer
         return typeofFarmer;
     }
 
+    public void RestartFarmer()
+    {
+        experience = 0; 
+        level = 0; 
+        objectCoin = 100;
+    }
+
 }

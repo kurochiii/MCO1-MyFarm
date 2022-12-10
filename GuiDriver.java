@@ -22,7 +22,6 @@ public class GuiDriver{
 
         ImageIcon newgame = new ImageIcon("Start.png");
         ImageIcon exitgame = new ImageIcon("Exit.png");
-        ImageIcon tryagain = new ImageIcon("mango.png");
 
         JButton startBtn = new JButton();
         startBtn.setIcon(newgame);
@@ -41,16 +40,7 @@ public class GuiDriver{
                 frame1.setResizable(false);
                 frame1.setLayout(new BorderLayout());
 
-                MyFarm myfarm = new MyFarm();
-                myfarm.setGame();
-                Farmer myfarmer = new Farmer(myfarm.getFarmerTypes());
-                myfarm.setFarmer(myfarmer);
-                int [] SelectedLot = new int[2];
-
-                new Welcome(frame1, myfarm, myfarmer);
-                new toolClass(frame1, myfarm, myfarmer, SelectedLot);
-                new seedClass(frame1, myfarm, myfarmer, SelectedLot);
-                new lotClass(frame1, myfarm, SelectedLot);
+                NewGame(frame1);
 
                 frame1.setVisible(true); 
             }
@@ -73,4 +63,21 @@ public class GuiDriver{
 
         sFrame.setVisible(true);
     }  
+
+    public static void NewGame(JFrame frame1)
+    {
+        MyFarm myfarm = new MyFarm();
+        myfarm.setGame();
+        Farmer myfarmer = new Farmer(myfarm.getFarmerTypes());
+        myfarm.setFarmer(myfarmer);
+        int [] SelectedLot = new int[2];
+
+        new Welcome(frame1, myfarm, myfarmer);
+        new toolClass(frame1, myfarm, myfarmer, SelectedLot);
+        new seedClass(frame1, myfarm, myfarmer, SelectedLot);
+        new lotClass(frame1, myfarm, SelectedLot);
+
+        lotClass.Updatebutton(myfarm);
+        Welcome.updateData(myfarm, myfarmer);
+    }
 }

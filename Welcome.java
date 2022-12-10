@@ -19,12 +19,12 @@ import javax.swing.JTextField;
 import javax.swing.border.CompoundBorder;
 
 public class Welcome {
-    private JFrame frame1;
+    private static JFrame frame1;
     private String farmername;
-    static JLabel objectCoinLabel;
-    static JLabel farmerLevelLabel;
-    static JLabel farmerTypeLabel;
-    static JLabel dayLabel;
+    private static JLabel objectCoinLabel;
+    private static JLabel farmerLevelLabel;
+    private static JLabel farmerTypeLabel;
+    private static JLabel dayLabel;
 
     /**
      * This contructors main allows the welcome class to connect to the main frame
@@ -220,8 +220,20 @@ public class Welcome {
 
         if(myfarm.checkEndGame())
         {
-            JOptionPane.showMessageDialog(null, "End Game", null, JOptionPane.INFORMATION_MESSAGE);
+            String[] options = {"Yes", "No"};
+            int response = JOptionPane.showOptionDialog(null, "You lose...\nDo you want to play again?", "Game Over", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, options[0]);
+            if(response == 0) 
+            {
+                myfarm.RestartGame();
+                lotClass.Updatebutton(myfarm);
+                Welcome.updateData(myfarm, myfarmer);
+            }
+            else 
+            {
+                System.exit(1);
+            }
         }
+        
     }
 
 } 
