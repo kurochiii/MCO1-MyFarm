@@ -14,20 +14,20 @@ import javax.swing.border.CompoundBorder;
 
 public class lotClass{
     private JFrame frame1;
-    static JButton lotBtn[][] = new JButton[5][10];
-    static ImageIcon plowed;
-    static ImageIcon unplowed;
-    static ImageIcon rocks;
-    static ImageIcon wPlant;
-    static ImageIcon gPlant;
-    static ImageIcon turnip;
-    static ImageIcon carrot;
-    static ImageIcon potato;
-    static ImageIcon rose;
-    static ImageIcon tulips;
-    static ImageIcon sunflower;
-    static ImageIcon mango;
-    static ImageIcon apple;
+    private static JButton lotBtn[][] = new JButton[5][10];
+    private static ImageIcon plowed;
+    private static ImageIcon unplowed;
+    private static ImageIcon rocks;
+    private static ImageIcon wPlant;
+    private static ImageIcon gPlant;
+    private static ImageIcon turnip;
+    private static ImageIcon carrot;
+    private static ImageIcon potato;
+    private static ImageIcon rose;
+    private static ImageIcon tulips;
+    private static ImageIcon sunflower;
+    private static ImageIcon mango;
+    private static ImageIcon apple;
 
     /**
      * This Constructor sets the needed attributes for the lot Class
