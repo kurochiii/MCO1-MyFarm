@@ -1,1 +1,1 @@
-public class GuiDriver {
+                Welcome.checkEndGame(myfarm, myfarmer);

@@ -3,10 +3,10 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Driver;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 
-import javax.lang.model.type.NullType;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -165,10 +165,10 @@ public class Welcome {
         farmerTypeLabel.setText("Farmer Type: " + myfarmer.getType().getName());
         dayLabel.setText("Day: " + myfarm.getTotalDays());
 
-        if((myfarm.getActiveCrops() == 0 && myfarmer.getObjectCoin() < 5) || myfarm.getWitheredCrops() >= 50)
+        if(myfarm.checkEndGame())
         {
-            JOptionPane.showMessageDialog(null, "End Game", null, JOptionPane.WARNING_MESSAGE);
-
+            JOptionPane.showMessageDialog(null, "End Game", null, JOptionPane.INFORMATION_MESSAGE);
         }
     }
+
 } 

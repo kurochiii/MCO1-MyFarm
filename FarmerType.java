@@ -87,8 +87,4 @@ public class FarmerType{
         return this.name;
     }
 
-    public int getRegFree()
-    {
-        return this.regFee;
-    }
 }

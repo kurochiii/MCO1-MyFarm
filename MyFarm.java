@@ -2,8 +2,9 @@ import java.util.ArrayList;
 
 public class MyFarm 
 {
-  private Lot[][] farm = new Lot[5][10]; // side of board
+  private static Lot[][] farm = new Lot[5][10]; // side of board
   int ActiveCrops = 0; 
+  static Farmer myFarmer;
 
   /**
    * This constructor sets the attribute stated in MyFarm class
@@ -11,7 +12,6 @@ public class MyFarm
    */
   public MyFarm()
   {
-
   }
 
   private int TotalDays = 1; 
@@ -187,4 +187,18 @@ public class MyFarm
     return withered;
   }
 
+  public boolean checkEndGame()
+  {
+    boolean result = false; 
+    if((getActiveCrops() == 0 && myFarmer.getObjectCoin() < 5) || getWitheredCrops() >= 50)
+    {
+        result = true;
+    }
+    return result;
+  }
+
+  public void setFarmer(Farmer myfarmer)
+  {
+    myFarmer = myfarmer;
+  }
 }
