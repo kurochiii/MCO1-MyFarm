@@ -7,8 +7,7 @@ public class MyFarm
   static Farmer myFarmer;
 
   /**
-   * This constructor sets the attribute stated in MyFarm class
-   * @param Name
+   * This constructor stated in MyFarm class
    */
   public MyFarm()
   {

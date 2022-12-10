@@ -109,9 +109,8 @@ public class Farmer
     }
 
     /**
-     * convert exp is a method that converts the farmer's exp into levels
+     * convertexp is a method that converts the farmer's exp into levels
      */
-
     public void convertexp()
     {
         if (experience >= 100 && experience < 1000)

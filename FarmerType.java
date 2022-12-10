@@ -83,6 +83,10 @@ public class FarmerType{
         return this.regFee;
     }
 
+    /**
+     * getName is a method that gets/returns the name
+     * @return name of farmerType
+     */
     public String getName()
     {
         return this.name;
