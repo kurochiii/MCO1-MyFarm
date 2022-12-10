@@ -133,7 +133,7 @@ public class toolClass{
                 }
                 else
                 {
-                    if (myfarm.getFarm()[SelectedLot[0]][SelectedLot[1]].getCrop() instanceof Crop)
+                    if (myfarm.getFarm()[SelectedLot[0]][SelectedLot[1]].getCrop() instanceof Crop && myfarm.getFarm()[SelectedLot[0]][SelectedLot[1]].getCrop().CheckStatus() != 2)
                     {
                         if (myfarmer.useTool(1, myfarm.getToolList(), myfarm.getFarm()[SelectedLot[0]][SelectedLot[1]]))
                         {
@@ -147,8 +147,14 @@ public class toolClass{
                     }
                     else
                     {
-                        JOptionPane.showMessageDialog(null, "Plant a Crop First", null, JOptionPane.INFORMATION_MESSAGE);
-                    }
+                        if(myfarm.getFarm()[SelectedLot[0]][SelectedLot[1]].getCrop() == null)
+                        {
+                            JOptionPane.showMessageDialog(null, "Plant a Crop First", null, JOptionPane.INFORMATION_MESSAGE);
+                        }
+                        else 
+                        {
+                            JOptionPane.showMessageDialog(null, "Cannot Water Dead Plant", null, JOptionPane.INFORMATION_MESSAGE);
+                        }                    }
                     SelectedLot[0] = 99; 
                     SelectedLot[1] = 99;
                 }
@@ -172,7 +178,7 @@ public class toolClass{
                 }
                 else
                 {
-                    if (myfarm.getFarm()[SelectedLot[0]][SelectedLot[1]].getCrop() instanceof Crop)
+                    if (myfarm.getFarm()[SelectedLot[0]][SelectedLot[1]].getCrop() instanceof Crop && myfarm.getFarm()[SelectedLot[0]][SelectedLot[1]].getCrop().CheckStatus() != 2)
                     {
                         if (myfarmer.useTool(2, myfarm.getToolList(), myfarm.getFarm()[SelectedLot[0]][SelectedLot[1]]))
                         {
@@ -186,7 +192,14 @@ public class toolClass{
                     }
                     else
                     {
-                        JOptionPane.showMessageDialog(null, "Plant a Crop First", null, JOptionPane.INFORMATION_MESSAGE);
+                        if(myfarm.getFarm()[SelectedLot[0]][SelectedLot[1]].getCrop() == null)
+                        {
+                            JOptionPane.showMessageDialog(null, "Plant a Crop First", null, JOptionPane.INFORMATION_MESSAGE);
+                        }
+                        else 
+                        {
+                            JOptionPane.showMessageDialog(null, "Cannot Water Dead Plant", null, JOptionPane.INFORMATION_MESSAGE);
+                        }           
                     }
                     SelectedLot[0] = 99; 
                     SelectedLot[1] = 99;
