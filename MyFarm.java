@@ -153,6 +153,12 @@ public class MyFarm
     return ToolList;
   }
 
+  
+  /** 
+   * getActiveCrops is a method that gets/returns 
+   * the crops that are alive
+   * @return number of active crops
+   */
   public int getActiveCrops()
   {
     int activeCrops = 0;
@@ -168,6 +174,11 @@ public class MyFarm
     }
     return activeCrops;
   }
+  
+  /** 
+   * getWitheredCrops is a method that gets/returns the withers crops
+   * @return number of withered crops
+   */
   public int getWitheredCrops()
   {
     int withered = 0;

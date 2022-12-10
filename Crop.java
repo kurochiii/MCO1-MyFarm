@@ -148,11 +148,21 @@ public class Crop extends Seed
         return FinalHarvestPrice;
     }
 
+    
+    /** 
+     * getTimesWater is a method that gets/returns the times a crop was watered
+     * @return Times crop has been watered
+     */
     public int getTimesWatered()
     {
         return TimesWatered;
     }
 
+    
+    /** 
+     * getTimesFertilized is a method that gets/returns the times a crop was fertilized
+     * @return Times crop has been fertilized
+     */
     public int getTimesFertilized()
     {
         return TimesFertilized;

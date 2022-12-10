@@ -9,6 +9,11 @@ import java.awt.FlowLayout;
 import javax.swing.JOptionPane;
 
 public class GuiDriver {
+    
+    /** 
+     * The main method allows the program to run the GUI or in other words display the program
+     * @param args is a String array needed to run the program
+     */
     public static void main(String[] args) {
 
         JFrame sFrame = new JFrame();

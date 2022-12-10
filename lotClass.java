@@ -9,7 +9,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-// import javax.swing.border.Border;
+import javax.swing.JOptionPane;
 import javax.swing.border.CompoundBorder;
 
 public class lotClass{
@@ -29,12 +29,19 @@ public class lotClass{
     static ImageIcon mango;
     static ImageIcon apple;
 
-
+    /**
+     * This Constructor sets the needed attributes for the lot Class
+     * to connect to the main frame and connecting classes
+     * @param frame1 This parameter is the iteration of the JFrame to connect to the main frame
+     * @param myfarm This parameter is the iteration of the MyFarm class
+     * @param SelectedLot This parameter is an interger array to indicate selected lot
+     */
     public lotClass(JFrame frame1, MyFarm myfarm, int[] SelectedLot){
         this.frame1 = new JFrame();
 
-        JPanel lotPanel = new JPanel();
-
+        /*
+         * Variable Assignment of all Image Icons
+         */
         plowed = new ImageIcon("pGrass.png");
         unplowed = new ImageIcon("unplowed.png");
         rocks = new ImageIcon("rocks.png");
@@ -49,6 +56,10 @@ public class lotClass{
         mango = new ImageIcon("mangoTree.png");
         apple = new ImageIcon("appleTree.png");
 
+        /*
+         * Decleration of lot panel which includes all lot[][] buttons
+         */
+        JPanel lotPanel = new JPanel();
         lotPanel.setBackground(new Color(0xe7cda3));
         lotPanel.setBorder(new CompoundBorder(
             BorderFactory.createMatteBorder(4, 4, 4, 4, new Color(0xE3D308)),
@@ -114,6 +125,12 @@ public class lotClass{
         frame1.add(lotPanel, BorderLayout.CENTER);
     }
 
+    
+    /** 
+     * UpdateButton method updates the apperance of a specific lot button depending
+     * on the status of the lot[][]
+     * @param myfarm iteration of MyFarm class
+     */
     public static void Updatebutton(MyFarm myfarm)
     {
         for (int i = 0; i < 5; i++)

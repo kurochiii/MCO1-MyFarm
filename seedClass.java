@@ -10,7 +10,6 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JOptionPane;
-// import javax.swing.border.Border;
 import javax.swing.border.CompoundBorder;
 
 public class seedClass{
@@ -18,9 +17,20 @@ public class seedClass{
     static JButton harvestBtn;
     static JButton infoBtn;
 
+    /**
+     * This Constructor sets the needed attributes for the Seed Class
+     * to connect to the main frame and connecting classes
+     * @param frame1 This parameter is the iteration of the JFrame to connect to the main frame
+     * @param myfarm This parameter is the iteration of the MyFarm class
+     * @param myfarmer This parameter is the iteration of Farmer class
+     * @param SelectedLot This parameter is an interger array to indicate selected lot
+     */
     public seedClass(JFrame frame1, MyFarm myfarm, Farmer myfarmer, int[] SelectedLot){
         this.frame1 = new JFrame();
 
+        /*
+         * Decleration of the different ImageIcon used for the buttons
+         */
         ImageIcon turnipPlant = new ImageIcon("turnip.png");
         ImageIcon carrotPlant = new ImageIcon("carrot.png");
         ImageIcon potatoPlant = new ImageIcon("potato.png");
@@ -32,6 +42,9 @@ public class seedClass{
         ImageIcon harvestButton = new ImageIcon("harvest.gif");
         ImageIcon InfoButton = new ImageIcon("info.png");
 
+        /*
+         * Decleration of the turnip button which allows user to plant turnips
+         */
         JButton turnipBtn = new JButton();
         turnipBtn.setIcon(turnipPlant);
         turnipBtn.setBackground(new Color(0xE3D308));
@@ -71,6 +84,9 @@ public class seedClass{
             }
         });
 
+        /*
+         * Decleration of the carrot button which allows user to plant carrots
+         */
         JButton carrotBtn = new JButton();
         carrotBtn.setIcon(carrotPlant);
         carrotBtn.setBackground(new Color(0xE3D308));
@@ -109,6 +125,9 @@ public class seedClass{
             }
         });
 
+        /*
+         * Decleration of the potato button which allows user to plant potatos
+         */
         JButton potatoBtn = new JButton();
         potatoBtn.setIcon(potatoPlant);
         potatoBtn.setBackground(new Color(0xE3D308));
@@ -147,6 +166,9 @@ public class seedClass{
             }
         });
 
+        /*
+         * Decleration of the rose button which allows user to plant roses
+         */
         JButton roseBtn = new JButton();
         roseBtn.setIcon(roseflower);
         roseBtn.setBackground(new Color(0xE3D308));
@@ -185,6 +207,9 @@ public class seedClass{
             }
         });
 
+        /*
+         * Decleration of the tulip button which allows user to plant tulips
+         */
         JButton tulipsBtn = new JButton();
         tulipsBtn.setIcon(tulipflower);
         tulipsBtn.setBackground(new Color(0xE3D308));
@@ -223,6 +248,9 @@ public class seedClass{
             }
         });
 
+        /*
+         * Decleration of sunflower button that allows user to plant sunflowers
+         */
         JButton sunflowerBtn = new JButton();
         sunflowerBtn.setIcon(sunflower);
         sunflowerBtn.setBackground(new Color(0xE3D308));
@@ -261,6 +289,9 @@ public class seedClass{
             }
         });
 
+        /*
+         * Decleration of the mango button which allows user to plant mango trees
+         */
         JButton mangoBtn = new JButton();
         mangoBtn.setIcon(mangoTree);
         mangoBtn.setBackground(new Color(0xE3D308));
@@ -321,6 +352,9 @@ public class seedClass{
             }
         });
 
+        /*
+         * Decleration of the apple button which allows user to plant apple trees
+         */
         JButton appleBtn = new JButton();
         appleBtn.setIcon(appleTree);
         appleBtn.setBackground(new Color(0xE3D308));
@@ -381,6 +415,9 @@ public class seedClass{
             }
         });
 
+        /*
+         * Decleration of harvest button allowing to harvest crops that are fully grown
+         */
         harvestBtn = new JButton();
         harvestBtn.setIcon(harvestButton);
         harvestBtn.setBackground(new Color(0xE3D308));
@@ -402,6 +439,9 @@ public class seedClass{
             }
         });
 
+        /*
+         * Decleration of info button which displays the info of the specific crop selected
+         */
         infoBtn = new JButton();
         infoBtn.setIcon(InfoButton);
         infoBtn.setBackground(new Color(0xE3D308));
@@ -417,6 +457,9 @@ public class seedClass{
             }
         });
 
+        /*
+         * Decleration of seed panel which contains all labels and buttons previously stated
+         */
         JPanel seedPanel = new JPanel();
         seedPanel.setBackground(new Color(0x36454F));
         seedPanel.setBorder(new CompoundBorder(
@@ -441,18 +484,27 @@ public class seedClass{
         update();
     }
 
+    /**
+     * updateHarvest method indicates to show the harvest button and hide the info button
+     */
     public static void updateHarvest()
     {
         harvestBtn.setVisible(true);
         infoBtn.setVisible(false);
     }
 
+    /**
+     * updateInfo method indicates to show the info button and hide the harvest button
+     */
     public static void updateInfo()
     {
         harvestBtn.setVisible(false);
         infoBtn.setVisible(true);
     }
 
+    /**
+     * update method indicates to hide both harvest and info buttons
+     */
     public static void update()
     {
         harvestBtn.setVisible(false);
