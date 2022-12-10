@@ -14,8 +14,8 @@ import javax.swing.border.CompoundBorder;
 
 public class seedClass{
     private JFrame frame1;
-    static JButton harvestBtn;
-    static JButton infoBtn;
+    private static JButton harvestBtn;
+    private static JButton infoBtn;
 
     /**
      * This Constructor sets the needed attributes for the Seed Class
