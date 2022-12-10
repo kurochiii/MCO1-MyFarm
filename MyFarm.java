@@ -3,8 +3,8 @@ import java.util.ArrayList;
 public class MyFarm 
 {
   private static Lot[][] farm = new Lot[5][10]; // side of board
-  int ActiveCrops = 0; 
-  static Farmer myFarmer;
+  private int ActiveCrops = 0; 
+  private static Farmer myFarmer;
 
   /**
    * This constructor stated in MyFarm class
