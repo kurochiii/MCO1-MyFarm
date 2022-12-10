@@ -429,11 +429,11 @@ public class seedClass{
             {
                 if (myfarmer.harvestCrop(myfarm.getFarm()[SelectedLot[0]][SelectedLot[1]]))
                 {
-                    Welcome.updateData(myfarm, myfarmer);
-                    lotClass.Updatebutton(myfarm);
                     JOptionPane.showMessageDialog(null, "Results of Harvest \n" +  "Harvested " + myfarm.getFarm()[SelectedLot[0]][SelectedLot[1]].getCrop().getProducts() + " " + myfarm.getFarm()[SelectedLot[0]][SelectedLot[1]].getCrop().getName() + "\nObjectCoin Earned: " + myfarm.getFarm()[SelectedLot[0]][SelectedLot[1]].getCrop().getFinalHarvestPrice(), 
                                             null, JOptionPane.INFORMATION_MESSAGE);
+                    myfarm.getFarm()[SelectedLot[0]][SelectedLot[1]].RemoveCrop();
                     Welcome.updateData(myfarm, myfarmer);
+                    lotClass.Updatebutton(myfarm);
                     seedClass.update();
                 }
             }
