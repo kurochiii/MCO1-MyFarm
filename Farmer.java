@@ -107,7 +107,11 @@ public class Farmer
         value = true;
         return value;
     }
-    
+
+    /**
+     * convert exp is a method that converts the farmer's exp into levels
+     */
+
     public void convertexp()
     {
         if (experience >= 100 && experience < 1000)
@@ -124,17 +128,6 @@ public class Farmer
     {
         return this.level;
     }
-
-    
-    /** 
-     * @return int
-     */
-    /* 
-    // Commented for the time being because not used for MCO1
-    public FarmerType getTypeOfFarmer(){
-        return this.typeOfFarmer;
-    }
-    */
 
     /**
      * getObjectCoin is a method that gets/returns the farmers object coins
@@ -204,6 +197,9 @@ public class Farmer
         return typeofFarmer;
     }
 
+    /** 
+     * RestartFarmer resets the farmers attributes back to the starting values
+     */
     public void RestartFarmer()
     {
         experience = 0; 
