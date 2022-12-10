@@ -91,6 +91,11 @@ public class Lot
         return plowed;
     }
 
+    
+    /** 
+     * getRock is a method that gets/returns rock
+     * @return rock or a instance of rock on a lot
+     */
     public boolean getRock()
     {
         return rock;
@@ -104,6 +109,13 @@ public class Lot
         crop = null;
     }
     
+    
+    /** 
+     * plantable is a method that checks if a seed or crop could be planted on a specific location
+     * @param myfarm instance of MyFarm class
+     * @param seed instance of seed from Seed class
+     * @return result if crop/seed is plantable
+     */
     public boolean plantable(MyFarm myfarm, Seed seed)
     {
       boolean result = false; 

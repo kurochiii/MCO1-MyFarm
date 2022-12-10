@@ -125,6 +125,10 @@ public class Farmer
         return this.level;
     }
 
+    
+    /** 
+     * @return int
+     */
     /* 
     // Commented for the time being because not used for MCO1
     public FarmerType getTypeOfFarmer(){
@@ -141,11 +145,22 @@ public class Farmer
         return this.objectCoin;
     }
 
+    
+    /** 
+     * getExp is a method that gets/returns the farmers exp or level
+     * @return the farmers experience
+     */
     public double getExp()
     {
         return this.experience;
     }
 
+    
+    /** 
+     * checkRegFarmer is a method where it checked if the farmer has the
+     * level requirment to level up
+     * @return Result whether farmer can level up
+     */
     public boolean checkRegFarmer()
     {
         boolean result = false; 
@@ -158,17 +173,32 @@ public class Farmer
         return result; 
     }
 
+    
+    /** 
+     * upgradeFarmer is a method that upgrades the farmer type
+     * @param FarmerTypes This parameter is a arrayList of farmer types
+     */
     public void upgradeFarmer(ArrayList<FarmerType> FarmerTypes)
     {
         this.typeofFarmer = FarmerTypes.get((typeofFarmer.getLevelReq() + 5)/5);
         objectCoin = objectCoin - typeofFarmer.getRegFee();
     }
 
+    
+    /** 
+     * setName is a method where the name is set
+     * @param Name A string representing name
+     */
     public void setName(String Name)
     {
         this.name = Name;
     }
 
+    
+    /** 
+     * getType is a method which gets/returns the farmers type
+     * @return type of farmer from the FarmerType class
+     */
     public FarmerType getType()
     {
         return typeofFarmer;
